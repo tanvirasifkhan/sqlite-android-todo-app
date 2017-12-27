@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginLeft="@dimen/completed_card_view_margin_left"
+        android:layout_marginRight="@dimen/completed_card_view_margin_right"
+        android:layout_marginTop="@dimen/completed_card_view_margin_top"
+        android:layout_marginBottom="@dimen/completed_card_view_margin_bottom"
+        android:elevation="@dimen/completed_card_view_elevation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/each_completed_todo_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/completed_todo_title"
+                android:text="@string/completed_todo_demo_title"
+                android:textSize="@dimen/completed_todo_title_text_size"
+                android:layout_marginLeft="@dimen/completed_todo_title_left_margin"
+                android:layout_marginBottom="@dimen/completed_todo_title_bottom_margin"
+                android:layout_marginRight="@dimen/completed_todo_title_right_margin"
+                android:layout_marginTop="@dimen/completed_todo_title_top_margin"
+                android:textColor="@color/completed_todo_title_strickthrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/completed_todo_content"
+                android:text="@string/completed_todo_demo_content"
+                android:layout_marginLeft="@dimen/completed_todo_content_left_margin"
+                android:layout_marginBottom="@dimen/completed_todo_content_bottom_margin"
+                android:layout_marginRight="@dimen/completed_todo_content_right_margin"
+                android:layout_below="@+id/completed_todo_title"
+                android:textSize="@dimen/completed_todo_content_text_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/completed_todo_info_section_margin_left"
+                android:layout_marginRight="@dimen/completed_todo_info_section_margin_right"
+                android:layout_marginBottom="@dimen/completed_todo_info_section_bottom_margin"
+                android:layout_below="@+id/completed_todo_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/todo_tag"
+                    android:text="@string/todo_info_demo_tag_text"
+                    android:textSize="@dimen/todo_info_section_text_size"
+                    android:layout_marginRight="@dimen/todo_info_section_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/todo_date"
+                    android:text="@string/todo_info_demo_date_text"
+                    android:textSize="@dimen/todo_info_section_text_size"
+                    android:layout_marginRight="@dimen/todo_info_section_margin_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/todo_time_from"
+                    android:text="@string/todo_info_demo_time_from_text"
+                    android:textSize="@dimen/todo_info_section_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/todo_time_to"
+                    android:text="@string/todo_info_demo_time_to_text"
+                    android:textSize="@dimen/todo_info_section_text_size"
+                    android:layout_marginRight="@dimen/todo_info_section_margin_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/todo_priority"
+                    android:text="High"
+                    android:textSize="@dimen/todo_info_section_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

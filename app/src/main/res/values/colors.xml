@@ -11,4 +11,11 @@
     <color name="add_todo_fab_color">#2196F3</color>
     <color name="todo_date_title_color">#888888</color>
     <color name="completed_todo_title_strickthrow">#2196F3</color>
+    <color name="input_text_hint_color">#2196F3</color>
+    <color name="input_background_color">#2196F3</color>
+    <color name="input_foreground_color">#2196F3</color>
+    <color name="radio_button_color">#2196F3</color>
+
+    <color name="primary">#2196F3</color>
+    <color name="accent">#2196F3</color>
 </resources>

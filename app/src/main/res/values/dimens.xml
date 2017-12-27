@@ -1,3 +1,4 @@
 <resources>
-
+    <dimen name="pending_todo_icon_margin">15dp</dimen>
+    <dimen name="no_pending_todo_title_size">16dp</dimen>
 </resources>

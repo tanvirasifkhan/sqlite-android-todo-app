@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/search"
+        android:title="@string/option_completed_search_text"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/delete_all"
+        android:title="@string/option_completed_delete_text"
+        android:icon="@drawable/ic_delete_completed_todos"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/settings"
+        android:title="@string/option_completed_settings_text"
+        android:icon="@drawable/ic_white_settings"
+        app:showAsAction="never"/>
+</menu>

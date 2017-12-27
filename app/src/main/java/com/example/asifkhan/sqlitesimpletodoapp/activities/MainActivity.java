@@ -1,5 +1,6 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -8,6 +9,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +18,16 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
+import com.example.asifkhan.sqlitesimpletodoapp.adapters.PendingTodoAdapter;
+import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private RecyclerView pendingTodos;
+    private LinearLayoutManager linearLayoutManager;
+    private ArrayList<PendingTodoModel> pendingTodoModels;
+    private PendingTodoAdapter pendingTodoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +38,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         changeStatusBarColor();
         showDrawerLayout();
         navigationMenuInit();
+        loadPendingTodos();
+    }
+
+    //loading all the pending todos
+    private void loadPendingTodos(){
+        pendingTodos=(RecyclerView)findViewById(R.id.pending_todos_view);
+        linearLayoutManager=new LinearLayoutManager(this);
+        pendingTodoModels=new ArrayList<>();
+        pendingTodoAdapter=new PendingTodoAdapter(pendingTodoModels,this);
+        pendingTodos.setAdapter(pendingTodoAdapter);
+        pendingTodos.setLayoutManager(linearLayoutManager);
     }
 
     @Override
@@ -90,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.pending_todos) {
-
+            startActivity(new Intent(this,MainActivity.class));
         } else if (id == R.id.completed_todos) {
 
         } else if (id == R.id.tags) {

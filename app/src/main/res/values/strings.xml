@@ -10,6 +10,9 @@
     <string name="pending_todo_demo_title">Pending todo demo title</string>
     <string name="pending_todo_demo_content">Pending todo demo content</string>
 
+    <string name="completed_todo_demo_title">Completed todo demo title</string>
+    <string name="completed_todo_demo_content">Completed todo demo content</string>
+
     <string name="todo_info_demo_tag_text">Programming</string>
     <string name="todo_info_demo_date_text">25 Dec, 2017</string>
     <string name="todo_info_demo_time_from_text">10:20 AM</string>

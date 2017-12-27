@@ -1,4 +1,4 @@
-package com.example.asifkhan.sqlitesimpletodoapp;
+package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.asifkhan.sqlitesimpletodoapp.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

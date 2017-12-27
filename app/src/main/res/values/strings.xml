@@ -3,6 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="app_title">Todos</string>
+    <string name="complete_todo_activity_title">Completed Todos</string>
 
     <string name="no_pending_todo_text">No Pending Todo Available</string>
     <string name="pending_todo_date_demo_title">25 Dec, 2017</string>
@@ -13,4 +14,14 @@
     <string name="todo_info_demo_date_text">25 Dec, 2017</string>
     <string name="todo_info_demo_time_from_text">10:20 AM</string>
     <string name="todo_info_demo_time_to_text">02:30 PM</string>
+
+    <string name="no_completed_todo_text">No Completed Todo Available</string>
+
+    <string name="option_completed_search_text">Search</string>
+    <string name="option_completed_delete_text">Delete All</string>
+    <string name="option_completed_settings_text">Settings</string>
+
+    <string name="option_pending_search_text">Search</string>
+    <string name="option_pending_completed_text">Completed Todos</string>
+    <string name="option_pending_settings_text">Settings</string>
 </resources>

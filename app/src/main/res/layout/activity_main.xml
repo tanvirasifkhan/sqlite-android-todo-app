@@ -9,12 +9,7 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/toolBarColor"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+        <include android:id="@+id/toolbar" layout="@layout/custom_toolbar_layout"/>
 
     </android.support.design.widget.AppBarLayout>
 

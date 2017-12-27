@@ -7,6 +7,7 @@
     tools:context="com.example.asifkhan.sqlitesimpletodoapp.activities.CompletedTodos">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -14,4 +15,36 @@
         <include android:id="@+id/toolbar" layout="@layout/custom_toolbar_layout"/>
 
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/completed_todos_view"
+        android:layout_below="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/no_completed_todo_section"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/completed_todos_icon"
+            android:src="@drawable/ic_completed_todo_icon"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/completed_todo_icon_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/no_completed_todo_title"
+            android:text="@string/no_completed_todo_text"
+            android:layout_gravity="center"
+            android:textSize="@dimen/no_completed_todo_title_size"
+            android:textColor="@color/ic_completed_todos_title_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </RelativeLayout>

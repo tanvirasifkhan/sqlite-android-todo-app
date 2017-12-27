@@ -6,4 +6,5 @@
     <color name="navigation_header_background_color">#2196F3</color>
     <color name="statusBarColor">#03A9F4</color>
     <color name="toolBarColor">#2196F3</color>
+    <color name="ic_pending_todos_title_color">#999999</color>
 </resources>

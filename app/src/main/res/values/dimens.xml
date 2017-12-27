@@ -1,6 +1,8 @@
 <resources>
     <dimen name="pending_todo_icon_margin">15dp</dimen>
+    <dimen name="completed_todo_icon_margin">15dp</dimen>
     <dimen name="no_pending_todo_title_size">16dp</dimen>
+    <dimen name="no_completed_todo_title_size">16dp</dimen>
     <dimen name="floating_button_add_todo_margin">20dp</dimen>
     <dimen name="todo_date_demo_title_margin">10dp</dimen>
 

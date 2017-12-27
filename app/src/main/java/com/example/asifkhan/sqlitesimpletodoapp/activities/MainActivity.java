@@ -3,6 +3,7 @@ package com.example.asifkhan.sqlitesimpletodoapp.activities;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -23,11 +25,13 @@ import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        View.OnClickListener{
     private RecyclerView pendingTodos;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<PendingTodoModel> pendingTodoModels;
     private PendingTodoAdapter pendingTodoAdapter;
+    private FloatingActionButton addNewTodo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         pendingTodoAdapter=new PendingTodoAdapter(pendingTodoModels,this);
         pendingTodos.setAdapter(pendingTodoAdapter);
         pendingTodos.setLayoutManager(linearLayoutManager);
+        addNewTodo=(FloatingActionButton)findViewById(R.id.fabAddTodo);
+        addNewTodo.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.fabAddTodo:
+                startActivity(new Intent(this,AddNewTodo.class));
+                break;
+        }
     }
 
     @Override
@@ -135,4 +150,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

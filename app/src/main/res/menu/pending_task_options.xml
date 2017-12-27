@@ -3,17 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/search"
-        android:title="Search"
+        android:title="@string/option_pending_search_text"
         android:icon="@drawable/ic_search"
         app:showAsAction="always"/>
 
     <item android:id="@+id/completed"
-        android:title="Completed Todos"
+        android:title="@string/option_pending_completed_text"
         android:icon="@drawable/ic_playlist_white_add_check"
         app:showAsAction="always"/>
 
     <item android:id="@+id/settings"
-        android:title="Settings"
+        android:title="@string/option_pending_settings_text"
         android:icon="@drawable/ic_white_settings"
         app:showAsAction="always"/>
 </menu>

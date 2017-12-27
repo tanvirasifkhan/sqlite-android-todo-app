@@ -14,7 +14,6 @@
     <string name="todo_info_demo_date_text">25 Dec, 2017</string>
     <string name="todo_info_demo_time_from_text">10:20 AM</string>
     <string name="todo_info_demo_time_to_text">02:30 PM</string>
-<<<<<<< HEAD
 
     <string name="no_completed_todo_text">No Completed Todo Available</string>
 
@@ -25,6 +24,4 @@
     <string name="option_pending_search_text">Search</string>
     <string name="option_pending_completed_text">Completed Todos</string>
     <string name="option_pending_settings_text">Settings</string>
-=======
->>>>>>> 011ffc13fa5bf1a1152a9e6941792597081f70d9
 </resources>

@@ -1,4 +1,4 @@
-package com.example.asifkhan.sqlitesimpletodoapp.helpers;
+package com.example.asifkhan.sqlitesimpletodoapp.models;
 
 /**
  * Created by asifkhan on 12/27/17.

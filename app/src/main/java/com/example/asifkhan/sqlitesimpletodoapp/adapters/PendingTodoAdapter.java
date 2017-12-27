@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
-import com.example.asifkhan.sqlitesimpletodoapp.helpers.PendingTodoModel;
+import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 
 import java.util.ArrayList;
 

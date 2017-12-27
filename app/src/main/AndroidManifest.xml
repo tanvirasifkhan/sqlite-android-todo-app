@@ -18,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CompletedTodos" android:parentActivityName=".activities.MainActivity"></activity>
+        <activity
+            android:name=".activities.CompletedTodos"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.AddNewTodo" android:parentActivityName=".activities.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -7,11 +7,11 @@ package com.example.asifkhan.sqlitesimpletodoapp.models;
 public class CompletedTodoModel {
     private int todoID;
     private String todoTitle,todoContent,todoDate,
-            todoTimeFrom,toTimeTo,todoPriority,todoTag,todoColor;
+            todoTimeFrom,toTimeTo,todoPriority,todoTag,todoColor,todoTextColor;
 
     public CompletedTodoModel(){}
 
-    public CompletedTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTimeFrom, String toTimeTo, String todoPriority, String todoTag, String todoColor) {
+    public CompletedTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTimeFrom, String toTimeTo, String todoPriority, String todoTag, String todoColor,String todoTextColor) {
         this.todoID = todoID;
         this.todoTitle = todoTitle;
         this.todoContent = todoContent;
@@ -21,6 +21,7 @@ public class CompletedTodoModel {
         this.todoPriority = todoPriority;
         this.todoTag = todoTag;
         this.todoColor = todoColor;
+        this.todoTextColor=todoTextColor;
     }
 
     public int getTodoID() {
@@ -93,5 +94,13 @@ public class CompletedTodoModel {
 
     public void setTodoColor(String todoColor) {
         this.todoColor = todoColor;
+    }
+
+    public String getTodoTextColor() {
+        return todoTextColor;
+    }
+
+    public void setTodoTextColor(String todoTextColor) {
+        this.todoTextColor = todoTextColor;
     }
 }

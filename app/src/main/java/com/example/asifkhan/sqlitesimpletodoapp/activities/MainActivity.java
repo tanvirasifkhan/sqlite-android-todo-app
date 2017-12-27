@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.search:
                 return true;
             case R.id.completed:
+                startActivity(new Intent(this,CompletedTodos.class));
                 return true;
             case R.id.settings:
                 return true;
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.pending_todos) {
             startActivity(new Intent(this,MainActivity.class));
         } else if (id == R.id.completed_todos) {
-
+            startActivity(new Intent(this,CompletedTodos.class));
         } else if (id == R.id.tags) {
 
         } else if (id == R.id.settings) {

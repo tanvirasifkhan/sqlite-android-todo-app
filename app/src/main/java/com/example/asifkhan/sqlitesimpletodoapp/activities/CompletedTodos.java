@@ -4,6 +4,8 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,8 +13,16 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
+import com.example.asifkhan.sqlitesimpletodoapp.adapters.CompletedTodoAdapter;
+import com.example.asifkhan.sqlitesimpletodoapp.models.CompletedTodoModel;
+
+import java.util.ArrayList;
 
 public class CompletedTodos extends AppCompatActivity {
+    private RecyclerView completedTodos;
+    private LinearLayoutManager linearLayoutManager;
+    private ArrayList<CompletedTodoModel> completedTodoModels;
+    private CompletedTodoAdapter completedTodoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,16 @@ public class CompletedTodos extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusBarColor));
         }
+        loadCompletedTodos();
+    }
+    //loading all the completed todos
+    private void loadCompletedTodos(){
+        completedTodos=(RecyclerView)findViewById(R.id.completed_todos_view);
+        linearLayoutManager=new LinearLayoutManager(this);
+        completedTodoModels=new ArrayList<>();
+        completedTodoAdapter=new CompletedTodoAdapter(completedTodoModels,this);
+        completedTodos.setAdapter(completedTodoAdapter);
+        completedTodos.setLayoutManager(linearLayoutManager);
     }
 
     @Override

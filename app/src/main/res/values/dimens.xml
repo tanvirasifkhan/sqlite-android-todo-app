@@ -53,4 +53,12 @@
 
     <dimen name="todo_option_margin_right">15dp</dimen>
     <dimen name="todo_option_margin_top">30dp</dimen>
+    <dimen name="new_todo_container_margin">10dp</dimen>
+
+    <dimen name="drawable_input_padding">15dp</dimen>
+    <dimen name="input_padding">15dp</dimen>
+    <dimen name="layout_weight">1</dimen>
+
+    <dimen name="radio_button_text_size">20sp</dimen>
+    <dimen name="radio_button_layout_margin">10dp</dimen>
 </resources>

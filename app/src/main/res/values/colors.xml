@@ -8,4 +8,5 @@
     <color name="toolBarColor">#2196F3</color>
     <color name="ic_pending_todos_title_color">#999999</color>
     <color name="add_todo_fab_color">#2196F3</color>
+    <color name="todo_date_title_color">#888888</color>
 </resources>

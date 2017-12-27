@@ -12,20 +12,41 @@
     <dimen name="pending_card_view_margin_right">10dp</dimen>
     <dimen name="pending_card_view_elevation">3dp</dimen>
 
+    <dimen name="completed_card_view_margin_top">3dp</dimen>
+    <dimen name="completed_card_view_margin_bottom">3dp</dimen>
+    <dimen name="completed_card_view_margin_left">10dp</dimen>
+    <dimen name="completed_card_view_margin_right">10dp</dimen>
+    <dimen name="completed_card_view_elevation">3dp</dimen>
+
     <dimen name="pending_todo_title_left_margin">10dp</dimen>
     <dimen name="pending_todo_title_right_margin">10dp</dimen>
     <dimen name="pending_todo_title_top_margin">10dp</dimen>
     <dimen name="pending_todo_title_bottom_margin">5dp</dimen>
     <dimen name="pending_todo_title_text_size">17sp</dimen>
 
+    <dimen name="completed_todo_title_left_margin">10dp</dimen>
+    <dimen name="completed_todo_title_right_margin">10dp</dimen>
+    <dimen name="completed_todo_title_top_margin">10dp</dimen>
+    <dimen name="completed_todo_title_bottom_margin">5dp</dimen>
+    <dimen name="completed_todo_title_text_size">17sp</dimen>
+
     <dimen name="pending_todo_content_left_margin">10dp</dimen>
     <dimen name="pending_todo_content_right_margin">10dp</dimen>
     <dimen name="pending_todo_content_bottom_margin">6dp</dimen>
     <dimen name="pending_todo_content_text_size">13sp</dimen>
 
+    <dimen name="completed_todo_content_left_margin">10dp</dimen>
+    <dimen name="completed_todo_content_right_margin">10dp</dimen>
+    <dimen name="completed_todo_content_bottom_margin">6dp</dimen>
+    <dimen name="completed_todo_content_text_size">13sp</dimen>
+
     <dimen name="pending_todo_info_section_margin_left">10dp</dimen>
     <dimen name="pending_todo_info_section_margin_right">10dp</dimen>
     <dimen name="pending_todo_info_section_bottom_margin">10dp</dimen>
+
+    <dimen name="completed_todo_info_section_margin_left">10dp</dimen>
+    <dimen name="completed_todo_info_section_margin_right">10dp</dimen>
+    <dimen name="completed_todo_info_section_bottom_margin">10dp</dimen>
 
     <dimen name="todo_info_section_text_size">12sp</dimen>
     <dimen name="todo_info_section_margin_right">12dp</dimen>

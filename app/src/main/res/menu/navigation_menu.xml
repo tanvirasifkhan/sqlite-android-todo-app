@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/pending_todos"
+            android:icon="@drawable/ic_format_list_bulleted"
+            android:title="Pending todos" />
+        <item
+            android:id="@+id/completed_todos"
+            android:icon="@drawable/ic_playlist_add_check"
+            android:title="Completed Todos" />
+        <item
+            android:id="@+id/tags"
+            android:icon="@drawable/ic_event_note"
+            android:title="Tags" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="Communicate with us">
+        <menu>
+            <item
+                android:id="@+id/facebook"
+                android:icon="@drawable/ic_find_in_page"
+                android:title="Find us on Facebook" />
+            <item
+                android:id="@+id/github"
+                android:icon="@drawable/ic_location_searching"
+                android:title="Find us on Github" />
+            <item
+                android:id="@+id/rate_us"
+                android:icon="@drawable/ic_star_border"
+                android:title="Rate us" />
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share this app" />
+            <item
+                android:id="@+id/more_apps"
+                android:icon="@drawable/ic_apps"
+                android:title="More apps" />
+        </menu>
+    </item>
+
+</menu>

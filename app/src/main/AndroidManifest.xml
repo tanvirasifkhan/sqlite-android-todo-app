@@ -24,7 +24,10 @@
         <activity
             android:name=".activities.AddNewTodo"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.AllTags" android:parentActivityName=".activities.MainActivity"></activity>
+        <activity
+            android:name=".activities.AllTags"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.AppSettings"></activity>
     </application>
 
 </manifest>

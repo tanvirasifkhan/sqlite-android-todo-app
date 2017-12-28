@@ -27,7 +27,7 @@
         <activity
             android:name=".activities.AllTags"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.AppSettings"></activity>
+        <activity android:name=".activities.AppSettings" android:parentActivityName=".activities.MainActivity"></activity>
     </application>
 
 </manifest>

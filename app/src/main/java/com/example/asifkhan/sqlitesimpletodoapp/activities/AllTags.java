@@ -5,6 +5,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,8 +15,16 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
+import com.example.asifkhan.sqlitesimpletodoapp.adapters.TagAdapter;
+import com.example.asifkhan.sqlitesimpletodoapp.models.TagsModel;
+
+import java.util.ArrayList;
 
 public class AllTags extends AppCompatActivity implements View.OnClickListener{
+    private RecyclerView allTags;
+    private ArrayList<TagsModel> tagsModels;
+    private TagAdapter tagAdapter;
+    private LinearLayoutManager linearLayoutManager;
     private FloatingActionButton fabAddTag;
 
     @Override
@@ -30,6 +40,17 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusBarColor));
         }
+        loadTags();
+    }
+
+    //load all the tags
+    private void loadTags(){
+        allTags=(RecyclerView)findViewById(R.id.viewAllTags);
+        tagsModels=new ArrayList<>();
+        tagAdapter=new TagAdapter(tagsModels,this);
+        linearLayoutManager=new LinearLayoutManager(this);
+        allTags.setAdapter(tagAdapter);
+        allTags.setLayoutManager(linearLayoutManager);
         fabAddTag=(FloatingActionButton)findViewById(R.id.fabAddTag);
         fabAddTag.setOnClickListener(this);
     }

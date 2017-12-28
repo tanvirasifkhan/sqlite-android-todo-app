@@ -7,19 +7,19 @@
         <item
             android:id="@+id/pending_todos"
             android:icon="@drawable/ic_format_list_bulleted"
-            android:title="Pending todos" />
+            android:title="@string/nav_pending_todos_text" />
         <item
             android:id="@+id/completed_todos"
             android:icon="@drawable/ic_playlist_add_check"
-            android:title="Completed Todos" />
+            android:title="@string/nav_completed_todos_text" />
         <item
             android:id="@+id/tags"
             android:icon="@drawable/ic_event_note"
-            android:title="Tags" />
+            android:title="@string/nav_tags_text" />
         <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_settings"
-            android:title="Settings" />
+            android:title="@string/nav_settings_text" />
     </group>
 
     <item android:title="Communicate with us">
@@ -27,23 +27,23 @@
             <item
                 android:id="@+id/facebook"
                 android:icon="@drawable/ic_find_in_page"
-                android:title="Find us on Facebook" />
+                android:title="@string/nav_find_on_facebook_text" />
             <item
                 android:id="@+id/github"
                 android:icon="@drawable/ic_location_searching"
-                android:title="Find us on Github" />
+                android:title="@string/nav_find_on_github_text" />
             <item
                 android:id="@+id/rate_us"
                 android:icon="@drawable/ic_star_border"
-                android:title="Rate us" />
+                android:title="@string/nav_rate_us_text" />
             <item
                 android:id="@+id/share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share this app" />
+                android:title="@string/nav_share_app_text" />
             <item
                 android:id="@+id/more_apps"
                 android:icon="@drawable/ic_apps"
-                android:title="More apps" />
+                android:title="@string/nav_more_apps_text" />
         </menu>
     </item>
 

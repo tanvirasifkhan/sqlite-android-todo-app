@@ -69,8 +69,6 @@
     <string name="tag_title_hint">Enter tag title</string>
     <string name="tag_text_color_hint">tag text color</string>
     <string name="tag_background_color_hint">tag background color</string>
+    <string name="pref_category_title_about">Developer Info</string>
 
-
-    <string name="pref_category_title">General</string>
-    <string name="pref_category_title_about">More Info</string>
 </resources>

@@ -73,4 +73,7 @@
 
     <dimen name="radio_button_text_size">20sp</dimen>
     <dimen name="radio_button_layout_margin">10dp</dimen>
+
+    <dimen name="new_tag_dialog_container_margin">15dp</dimen>
+    <dimen name="add_new_tag_dialog_title_padding">15dp</dimen>
 </resources>

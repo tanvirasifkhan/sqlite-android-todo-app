@@ -113,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.search:
                 return true;
+            case R.id.all_tags:
+                startActivity(new Intent(this,AllTags.class));
+                return true;
             case R.id.completed:
                 startActivity(new Intent(this,CompletedTodos.class));
                 return true;
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.completed_todos) {
             startActivity(new Intent(this,CompletedTodos.class));
         } else if (id == R.id.tags) {
-
+            startActivity(new Intent(this,AllTags.class));
         } else if (id == R.id.settings) {
 
         } else if (id == R.id.facebook) {

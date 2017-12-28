@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="@dimen/tag_card_view_margin"
+        android:elevation="@dimen/tag_card_view_elevation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/each_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tag_title"
+                android:text="@string/todo_info_demo_tag_text"
+                android:textSize="@dimen/tag_title_text_size"
+                android:layout_marginLeft="@dimen/tag_title_left_margin"
+                android:layout_marginBottom="@dimen/tag_title_bottom_margin"
+                android:layout_marginRight="@dimen/tag_title_right_margin"
+                android:layout_marginTop="@dimen/tag_title_top_margin"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/tags_option"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/tag_option_icon_margin_top"
+                android:layout_marginRight="@dimen/tag_option_icon_margin_right"
+                android:src="@drawable/ic_tags_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

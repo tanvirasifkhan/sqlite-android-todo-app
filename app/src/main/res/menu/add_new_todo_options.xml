@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/choose_color"
-        android:title="Choose color"
+        android:title="@string/option_new_todo_color_chooser_text"
         android:icon="@drawable/ic_color_picker"
         app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/save_todo"
-        android:title="Save todo"
+        android:title="@string/option_save_todo_text"
         android:icon="@drawable/ic_add_new_todo_save"
         app:showAsAction="ifRoom"/>
 </menu>

@@ -16,6 +16,7 @@
     <color name="input_background_color">#2196F3</color>
     <color name="input_foreground_color">#2196F3</color>
     <color name="radio_button_color">#2196F3</color>
+    <color name="add_new_tag_dialog_title_color">#2196F3</color>
 
     <color name="primary">#2196F3</color>
     <color name="accent">#2196F3</color>

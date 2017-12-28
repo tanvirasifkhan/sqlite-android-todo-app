@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this,CompletedTodos.class));
                 return true;
             case R.id.settings:
+                startActivity(new Intent(this,AppSettings.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.tags) {
             startActivity(new Intent(this,AllTags.class));
         } else if (id == R.id.settings) {
-
+            startActivity(new Intent(this,AppSettings.class));
         } else if (id == R.id.facebook) {
 
         } else if (id == R.id.github) {

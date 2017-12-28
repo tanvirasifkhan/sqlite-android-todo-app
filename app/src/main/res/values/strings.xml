@@ -7,6 +7,16 @@
     <string name="new_todo_activity_title">Add New Todo</string>
     <string name="all_tags_title">Tags</string>
 
+    <string name="nav_pending_todos_text">Pending todos</string>
+    <string name="nav_completed_todos_text">Completed todos</string>
+    <string name="nav_tags_text">Tags</string>
+    <string name="nav_settings_text">Settings</string>
+    <string name="nav_find_on_facebook_text">Find us on Facebook</string>
+    <string name="nav_find_on_github_text">Find us on Github</string>
+    <string name="nav_rate_us_text">Rate us</string>
+    <string name="nav_share_app_text">Share this app</string>
+    <string name="nav_more_apps_text">More apps</string>
+
     <string name="no_pending_todo_text">No Pending Todo Available</string>
     <string name="pending_todo_date_demo_title">25 Dec, 2017</string>
     <string name="pending_todo_demo_title">Pending todo demo title</string>
@@ -26,6 +36,12 @@
     <string name="option_completed_search_text">Search</string>
     <string name="option_completed_delete_text">Delete All</string>
     <string name="option_completed_settings_text">Settings</string>
+
+    <string name="option_tags_search_text">Search</string>
+    <string name="option_tag_settings_text">Settings</string>
+
+    <string name="option_new_todo_color_chooser_text">Choose color</string>
+    <string name="option_save_todo_text">Save Todo</string>
 
     <string name="option_pending_search_text">Search</string>
     <string name="option_pending_completed_text">Completed Todos</string>

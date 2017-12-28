@@ -1,6 +1,7 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -78,6 +79,7 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
             case R.id.search:
                 return true;
             case R.id.setting:
+                startActivity(new Intent(this,AppSettings.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

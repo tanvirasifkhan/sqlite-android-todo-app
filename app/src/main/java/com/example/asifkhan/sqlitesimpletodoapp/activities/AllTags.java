@@ -1,8 +1,10 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+import android.content.DialogInterface;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -59,6 +61,7 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.fabAddTag:
+                showNewTagDialog();
                 break;
         }
     }
@@ -79,5 +82,22 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    //show add new tag dialog
+    private void showNewTagDialog(){
+        final AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setView(R.layout.add_new_tag_dialog);
+        builder.setPositiveButton(R.string.add_tag_dialog_positive_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).setNegativeButton(R.string.add_tag_dialog_cancel_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).create().show();
     }
 }

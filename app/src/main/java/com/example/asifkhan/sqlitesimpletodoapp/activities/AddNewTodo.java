@@ -1,5 +1,6 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,6 @@ import android.view.WindowManager;
 import com.example.asifkhan.sqlitesimpletodoapp.R;
 
 public class AddNewTodo extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

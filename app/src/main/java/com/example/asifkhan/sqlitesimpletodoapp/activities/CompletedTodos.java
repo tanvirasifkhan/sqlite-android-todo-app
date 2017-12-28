@@ -40,6 +40,7 @@ public class CompletedTodos extends AppCompatActivity {
         }
         loadCompletedTodos();
     }
+
     //loading all the completed todos
     private void loadCompletedTodos(){
         completedTodos=(RecyclerView)findViewById(R.id.completed_todos_view);

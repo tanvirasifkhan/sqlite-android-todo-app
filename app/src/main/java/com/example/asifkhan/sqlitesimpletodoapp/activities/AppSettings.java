@@ -1,5 +1,6 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+
 import android.os.Build;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
@@ -30,19 +31,6 @@ public class AppSettings extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusBarColor));
         }
         getPrefFragment();
-        applySettings();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        applySettings();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        applySettings();
     }
 
     public static class AppPreference extends PreferenceFragment{
@@ -58,10 +46,5 @@ public class AppSettings extends AppCompatActivity {
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.prefContainer,new AppPreference()).commit();
-    }
-
-    //apply app settings
-    private void applySettings(){
-
     }
 }

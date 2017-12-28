@@ -6,6 +6,7 @@
     <string name="complete_todo_activity_title">Completed Todos</string>
     <string name="new_todo_activity_title">Add New Todo</string>
     <string name="all_tags_title">Tags</string>
+    <string name="settings_title">App Settings</string>
 
     <string name="nav_pending_todos_text">Pending todos</string>
     <string name="nav_completed_todos_text">Completed todos</string>
@@ -68,4 +69,8 @@
     <string name="tag_title_hint">Enter tag title</string>
     <string name="tag_text_color_hint">tag text color</string>
     <string name="tag_background_color_hint">tag background color</string>
+
+
+    <string name="pref_category_title">General</string>
+    <string name="pref_category_title_about">More Info</string>
 </resources>

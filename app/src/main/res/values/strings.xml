@@ -21,6 +21,7 @@
     <string name="pending_todo_date_demo_title">25 Dec, 2017</string>
     <string name="pending_todo_demo_title">Pending todo demo title</string>
     <string name="pending_todo_demo_content">Pending todo demo content</string>
+    <string name="tag_title_demo_text">Demo tag title</string>
 
     <string name="completed_todo_demo_title">Completed todo demo title</string>
     <string name="completed_todo_demo_content">Completed todo demo content</string>

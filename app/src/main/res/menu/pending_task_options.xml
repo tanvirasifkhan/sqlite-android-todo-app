@@ -7,6 +7,11 @@
         android:icon="@drawable/ic_search"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/all_tags"
+        android:title="@string/option_all_tags_text"
+        android:icon="@drawable/ic_show_all_tags"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/completed"
         android:title="@string/option_pending_completed_text"
         android:icon="@drawable/ic_playlist_white_add_check"

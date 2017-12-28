@@ -1,5 +1,6 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -63,6 +64,7 @@ public class CompletedTodos extends AppCompatActivity {
             case R.id.delete_all:
                 return true;
             case R.id.settings:
+                startActivity(new Intent(this,AppSettings.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_category_title">
+
+        <ListPreference
+            android:key="app_theme"
+            android:title="Change App Theme"
+            android:icon="@drawable/ic_theme"
+            android:summary="Change the application theme"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_category_title_about">
+
+        <Preference
+            android:title="Developed by"
+            android:icon="@drawable/ic_app_developed_by"
+            android:summary="Asif Khan"/>
+
+        <Preference
+            android:title="Find on Facebook"
+            android:icon="@drawable/ic_find_in_page"
+            android:summary="facebook.com/tanvirasifkhan"/>
+
+        <Preference
+            android:title="Find on Github"
+            android:icon="@drawable/ic_location_searching"
+            android:summary="github.com/asifkhantanvir"/>
+
+        <Preference
+            android:key="rate_us"
+            android:title="Rate us"
+            android:icon="@drawable/ic_star_border"
+            android:summary="rate us on play store"/>
+
+        <Preference
+            android:key="more_apps"
+            android:title="More apps"
+            android:icon="@drawable/ic_apps"
+            android:summary="more apps on play store"/>
+
+        <Preference
+            android:title="App version"
+            android:icon="@drawable/ic_app_version"
+            android:summary="1.0"/>
+    </PreferenceCategory>
+</PreferenceScreen>

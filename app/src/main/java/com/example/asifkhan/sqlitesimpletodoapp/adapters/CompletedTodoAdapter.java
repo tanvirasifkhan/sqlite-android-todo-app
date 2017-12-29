@@ -38,8 +38,7 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         holder.todoContent.setText(completedTodoModel.getTodoContent());
         holder.todoTag.setText(completedTodoModel.getTodoTag());
         holder.todoDate.setText(completedTodoModel.getTodoDate());
-        holder.todoTimeFrom.setText(completedTodoModel.getTodoTimeFrom());
-        holder.todoTimeTo.setText(completedTodoModel.getToTimeTo());
+        holder.todoTime.setText(completedTodoModel.getTodoTime());
     }
 
     @Override
@@ -48,15 +47,14 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
     }
 
     public class CompletedDataHolder extends RecyclerView.ViewHolder {
-        TextView todoTitle,todoContent,todoTag,todoDate,todoTimeFrom,todoTimeTo;
+        TextView todoTitle,todoContent,todoTag,todoDate,todoTime;
         public CompletedDataHolder(View itemView) {
             super(itemView);
             todoTitle=(TextView)itemView.findViewById(R.id.pending_todo_title);
             todoContent=(TextView)itemView.findViewById(R.id.pending_todo_content);
             todoTag=(TextView)itemView.findViewById(R.id.todo_tag);
             todoDate=(TextView)itemView.findViewById(R.id.todo_date);
-            todoTimeFrom=(TextView)itemView.findViewById(R.id.todo_time_from);
-            todoTimeTo=(TextView)itemView.findViewById(R.id.todo_time_to);
+            todoTime=(TextView)itemView.findViewById(R.id.todo_time);
         }
     }
 }

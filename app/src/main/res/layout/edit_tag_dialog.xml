@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.asifkhan.sqlitesimpletodoapp.activities.AddNewTodo">
+
+        <TextView
+            android:id="@+id/edit_tag_dialog_title"
+            android:text="@string/edit_tag_dialog_title"
+            android:background="@color/save_tag_dialog_title_color"
+            android:padding="@dimen/edit_tag_dialog_title_padding"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="@dimen/edit_tag_dialog_container_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edit_tag_title"
+                    android:drawableLeft="@drawable/ic_add_new_todo_tag_icon"
+                    android:drawablePadding="@dimen/drawable_input_padding"
+                    android:padding="@dimen/input_padding"
+                    android:hint="@string/edit_tag_title_hint"
+                    android:theme="@style/InputStyleTheme"
+                    android:foregroundTint="@color/input_foreground_color"
+                    android:textColorHint="@color/input_text_hint_color"
+                    app:backgroundTint="@color/input_background_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/tag_dialog_linear_margin_right"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/tag_dialog_linear_margin_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cancel"
+                android:text="@string/edit_tag_dialog_cancel_text"
+                android:textColor="@color/add_new_tag_dialog_title_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/edit_new_tag"
+                android:layout_marginLeft="@dimen/edit_tag_dialog_add_margin_left"
+                android:text="@string/edit_tag_dialog_positive_text"
+                android:textColor="@color/save_tag_dialog_title_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

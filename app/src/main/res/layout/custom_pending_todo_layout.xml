@@ -4,15 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/pending_todo_date_title"
-        android:text="@string/pending_todo_date_demo_title"
-        android:layout_margin="@dimen/todo_date_demo_title_margin"
-        android:textColor="@color/todo_date_title_color"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <android.support.v7.widget.CardView
         android:layout_marginLeft="@dimen/pending_card_view_margin_left"
         android:layout_marginRight="@dimen/pending_card_view_margin_right"
@@ -50,14 +41,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/option"
-                android:src="@drawable/ic_todo_options"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/todo_option_margin_right"
                 android:layout_marginTop="@dimen/todo_option_margin_top"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/make_completed"
+                    android:src="@drawable/ic_done_todo"
+                    android:layout_marginRight="@dimen/completd_to_img_margin_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/option"
+                    android:src="@drawable/ic_todo_options"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -85,17 +92,9 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:id="@+id/todo_time_from"
+                    android:id="@+id/todo_time"
                     android:text="@string/todo_info_demo_time_from_text"
                     android:textSize="@dimen/todo_info_section_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/todo_time_to"
-                    android:text="@string/todo_info_demo_time_to_text"
-                    android:textSize="@dimen/todo_info_section_text_size"
-                    android:layout_marginRight="@dimen/todo_info_section_margin_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

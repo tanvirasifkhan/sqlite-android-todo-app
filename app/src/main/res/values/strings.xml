@@ -18,7 +18,6 @@
     <string name="nav_more_apps_text">More apps</string>
 
     <string name="no_pending_todo_text">No Pending Todo Available</string>
-    <string name="pending_todo_date_demo_title">25 Dec, 2017</string>
     <string name="pending_todo_demo_title">Pending todo demo title</string>
     <string name="pending_todo_demo_content">Pending todo demo content</string>
     <string name="tag_title_demo_text">Demo tag title</string>
@@ -29,7 +28,6 @@
     <string name="todo_info_demo_tag_text">Programming</string>
     <string name="todo_info_demo_date_text">25 Dec, 2017</string>
     <string name="todo_info_demo_time_from_text">10:20 AM</string>
-    <string name="todo_info_demo_time_to_text">02:30 PM</string>
 
     <string name="no_completed_todo_text">No Completed Todo Available</string>
     <string name="no_tags_available_text">No Tags Available</string>
@@ -53,11 +51,10 @@
     <string name="todo_title_hint">Enter todo title</string>
     <string name="todo_content_hint">Enter todo content</string>
     <string name="todo_date_hint">Enter todo date</string>
-    <string name="todo_tag_hint">Enter todo tag</string>
-    <string name="todo_time_from_hint">start time</string>
-    <string name="todo_time_to_hint">end time</string>
+    <string name="todo_time_hint">Enter todo time</string>
     <string name="add_todo_dialog_positive_text">Add New Todo</string>
     <string name="add_todo_dialog_cancel_text">Cancel</string>
+    <string name="todo_title_add_success_msg">Todo added successfully !</string>
 
     <string name="add_tag_dialog_title">Add New Tag</string>
     <string name="edit_tag_dialog_title">Edit Tag</string>
@@ -78,6 +75,10 @@
     <string name="tag_edit_cancel">Cancel</string>
     <string name="tag_saved_success">Tag saved successfully !</string>
     <string name="tag_no_save">Tag not changed !</string>
+    <string name="tag_create_dialog_title_text">Tag create dialog</string>
+    <string name="no_tag_in_the_db_text">There is no tag in the database.You need to create a tag first to continue.</string>
+    <string name="create_new_tag">Create New Tag</string>
+
 
     <string name="tag_title_hint">Enter tag title</string>
     <string name="edit_tag_title_hint">Enter new tag title</string>

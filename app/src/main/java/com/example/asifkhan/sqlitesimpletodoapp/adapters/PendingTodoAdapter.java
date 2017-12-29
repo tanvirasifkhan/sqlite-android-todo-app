@@ -35,13 +35,11 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
     @Override
     public void onBindViewHolder(PendingTodoAdapter.PendingDataHolder holder, int position) {
         PendingTodoModel pendingTodoModel=pendingTodoModels.get(position);
-        holder.dateTitle.setText(pendingTodoModel.getTodoDate());
         holder.todoTitle.setText(pendingTodoModel.getTodoTitle());
         holder.todoContent.setText(pendingTodoModel.getTodoContent());
         holder.todoTag.setText(pendingTodoModel.getTodoTag());
         holder.todoDate.setText(pendingTodoModel.getTodoDate());
-        holder.todoTimeFrom.setText(pendingTodoModel.getTodoTimeFrom());
-        holder.todoTimeTo.setText(pendingTodoModel.getToTimeTo());
+        holder.todoTime.setText(pendingTodoModel.getTodoTime());
         holder.option.setOnClickListener(this);
     }
 
@@ -59,17 +57,15 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
     }
 
     public class PendingDataHolder extends RecyclerView.ViewHolder {
-        TextView dateTitle,todoTitle,todoContent,todoTag,todoDate,todoTimeFrom,todoTimeTo;
+        TextView todoTitle,todoContent,todoTag,todoDate,todoTime;
         ImageView option;
         public PendingDataHolder(View itemView) {
             super(itemView);
-            dateTitle=(TextView)itemView.findViewById(R.id.pending_todo_date_title);
             todoTitle=(TextView)itemView.findViewById(R.id.pending_todo_title);
             todoContent=(TextView)itemView.findViewById(R.id.pending_todo_content);
             todoTag=(TextView)itemView.findViewById(R.id.todo_tag);
             todoDate=(TextView)itemView.findViewById(R.id.todo_date);
-            todoTimeFrom=(TextView)itemView.findViewById(R.id.todo_time_from);
-            todoTimeTo=(TextView)itemView.findViewById(R.id.todo_time_to);
+            todoTime=(TextView)itemView.findViewById(R.id.todo_time);
             option=(ImageView)itemView.findViewById(R.id.option);
         }
     }

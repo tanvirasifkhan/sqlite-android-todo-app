@@ -7,11 +7,13 @@ import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -88,7 +90,30 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_new_tag_option,menu);
+        getMenuInflater().inflate(R.menu.vew_tag_option,menu);
+        MenuItem menuItem=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView)menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText=newText.toLowerCase();
+                ArrayList<TagsModel> newTagsModels=new ArrayList<>();
+                for(TagsModel tagsModel:tagsModels){
+                    String tagTitle=tagsModel.getTagTitle().toLowerCase();
+                    if(tagTitle.contains(newText)){
+                        newTagsModels.add(tagsModel);
+                    }
+                }
+                tagAdapter.filterTags(newTagsModels);
+                tagAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -147,4 +147,11 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
         });
         builder.create().show();
     }
+
+    //search filter
+    public void filterTags(ArrayList<TagsModel> newTagsModels){
+        tagsModels=new ArrayList<>();
+        tagsModels.addAll(newTagsModels);
+        notifyDataSetChanged();
+    }
 }

@@ -7,17 +7,24 @@ package com.example.asifkhan.sqlitesimpletodoapp.models;
 public class PendingTodoModel {
     private int todoID;
     private String todoTitle,todoContent,todoDate,
-            todoTimeFrom,toTimeTo,todoTag;
+            todoTime,todoTag;
 
     public PendingTodoModel(){}
 
-    public PendingTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTimeFrom, String toTimeTo,String todoTag) {
+    public PendingTodoModel(String todoTitle, String todoContent,String todoTag, String todoDate, String todoTime) {
+        this.todoTitle = todoTitle;
+        this.todoContent = todoContent;
+        this.todoDate = todoDate;
+        this.todoTime = todoTime;
+        this.todoTag = todoTag;
+    }
+
+    public PendingTodoModel(int todoID, String todoTitle, String todoContent,String todoTag, String todoDate, String todoTime) {
         this.todoID = todoID;
         this.todoTitle = todoTitle;
         this.todoContent = todoContent;
         this.todoDate = todoDate;
-        this.todoTimeFrom = todoTimeFrom;
-        this.toTimeTo = toTimeTo;
+        this.todoTime = todoTime;
         this.todoTag = todoTag;
     }
 
@@ -53,20 +60,12 @@ public class PendingTodoModel {
         this.todoDate = todoDate;
     }
 
-    public String getTodoTimeFrom() {
-        return todoTimeFrom;
+    public String getTodoTime() {
+        return todoTime;
     }
 
-    public void setTodoTimeFrom(String todoTimeFrom) {
-        this.todoTimeFrom = todoTimeFrom;
-    }
-
-    public String getToTimeTo() {
-        return toTimeTo;
-    }
-
-    public void setToTimeTo(String toTimeTo) {
-        this.toTimeTo = toTimeTo;
+    public void setTodoTime(String todoTime) {
+        this.todoTime = todoTime;
     }
 
     public String getTodoTag() {

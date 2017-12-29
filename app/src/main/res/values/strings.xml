@@ -4,7 +4,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="app_title">Todos</string>
     <string name="complete_todo_activity_title">Completed Todos</string>
-    <string name="new_todo_activity_title">Add New Todo</string>
     <string name="all_tags_title">Tags</string>
     <string name="settings_title">App Settings</string>
 
@@ -41,8 +40,6 @@
 
     <string name="option_tags_search_text">Search</string>
     <string name="option_tag_settings_text">Settings</string>
-
-    <string name="option_new_todo_color_chooser_text">Choose color</string>
     <string name="option_save_todo_text">Save Todo</string>
 
     <string name="option_pending_search_text">Search</string>
@@ -50,25 +47,23 @@
     <string name="option_pending_settings_text">Settings</string>
     <string name="option_all_tags_text">All Tags</string>
 
+    <string name="add_todo_dialog_title">Add New Todo</string>
     <string name="todo_title_hint">Enter todo title</string>
     <string name="todo_content_hint">Enter todo content</string>
     <string name="todo_date_hint">Enter todo date</string>
     <string name="todo_tag_hint">Enter todo tag</string>
     <string name="todo_time_from_hint">start time</string>
     <string name="todo_time_to_hint">end time</string>
-    <string name="todo_text_color_hint">todo text color</string>
-
-    <string name="radio_normal_text">Normal</string>
-    <string name="radio_medium_text">Medium</string>
-    <string name="radio_high_text">High</string>
+    <string name="add_todo_dialog_positive_text">Add New Todo</string>
+    <string name="add_todo_dialog_cancel_text">Cancel</string>
 
     <string name="add_tag_dialog_title">Add New Tag</string>
     <string name="add_tag_dialog_positive_text">Add New Tag</string>
     <string name="add_tag_dialog_cancel_text">Cancel</string>
+    <string name="add_tag_text_text_color_text">Tag Text Color</string>
+    <string name="add_tag_text_background_color_text">Tag Background Color</string>
 
     <string name="tag_title_hint">Enter tag title</string>
-    <string name="tag_text_color_hint">tag text color</string>
-    <string name="tag_background_color_hint">tag background color</string>
     <string name="pref_category_title_about">Developer Info</string>
 
 </resources>

@@ -7,17 +7,16 @@ package com.example.asifkhan.sqlitesimpletodoapp.models;
 public class CompletedTodoModel {
     private int todoID;
     private String todoTitle,todoContent,todoDate,
-            todoTimeFrom,toTimeTo,todoTag;
+            todoTime,todoTag;
 
     public CompletedTodoModel(){}
 
-    public CompletedTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTimeFrom, String toTimeTo,String todoTag) {
+    public CompletedTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTime,String todoTag) {
         this.todoID = todoID;
         this.todoTitle = todoTitle;
         this.todoContent = todoContent;
         this.todoDate = todoDate;
-        this.todoTimeFrom = todoTimeFrom;
-        this.toTimeTo = toTimeTo;
+        this.todoTime = todoTime;
         this.todoTag = todoTag;
     }
 
@@ -53,22 +52,13 @@ public class CompletedTodoModel {
         this.todoDate = todoDate;
     }
 
-    public String getTodoTimeFrom() {
-        return todoTimeFrom;
+    public String getTodoTime() {
+        return todoTime;
     }
 
-    public void setTodoTimeFrom(String todoTimeFrom) {
-        this.todoTimeFrom = todoTimeFrom;
+    public void setTodoTime(String todoTime) {
+        this.todoTime = todoTime;
     }
-
-    public String getToTimeTo() {
-        return toTimeTo;
-    }
-
-    public void setToTimeTo(String toTimeTo) {
-        this.toTimeTo = toTimeTo;
-    }
-
     public String getTodoTag() {
         return todoTag;
     }

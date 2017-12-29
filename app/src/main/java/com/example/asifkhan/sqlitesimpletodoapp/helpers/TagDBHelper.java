@@ -87,6 +87,21 @@ public class TagDBHelper{
         return true;
     }
 
+
+    //fetch all the tags title strings from the database
+    public ArrayList<String> fetchTagStrings(){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        ArrayList<String> tagsModels=new ArrayList<>();
+        String query="SELECT " + DatabaseHelper.COL_TAG_TITLE+ " FROM " + DatabaseHelper.TABLE_TAG_NAME;
+        Cursor cursor=sqLiteDatabase.rawQuery(query,null);
+        while (cursor.moveToNext()){
+            tagsModels.add(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TAG_TITLE)));
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return tagsModels;
+    }
+
     //fetch tag title from the database according to the tag id
     public String fetchTagTitle(int tagID){
         SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
@@ -100,5 +115,15 @@ public class TagDBHelper{
         cursor.close();
         sqLiteDatabase.close();
         return title;
+    }
+
+    //fetch tag id from the database according to the tag title
+    public int fetchTagID(String tagTitle){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        String fetchTitle="SELECT " + DatabaseHelper.COL_TAG_ID + " FROM " + DatabaseHelper.TABLE_TAG_NAME
+                + " WHERE " + DatabaseHelper.COL_TAG_TITLE+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(fetchTitle,new String[]{tagTitle});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COL_TAG_ID));
     }
 }

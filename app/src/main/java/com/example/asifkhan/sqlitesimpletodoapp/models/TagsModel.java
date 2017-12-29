@@ -8,6 +8,12 @@ public class TagsModel {
     private int tagID;
     private String tagTitle;
 
+    public TagsModel(){}
+
+    public TagsModel(String tagTitle) {
+        this.tagTitle = tagTitle;
+    }
+
     public TagsModel(int tagID, String tagTitle) {
         this.tagID = tagID;
         this.tagTitle = tagTitle;

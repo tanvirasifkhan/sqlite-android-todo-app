@@ -41,6 +41,8 @@
     <string name="option_tags_search_text">Search</string>
     <string name="option_tag_settings_text">Settings</string>
     <string name="option_save_todo_text">Save Todo</string>
+    <string name="option_tag_edit_text">Edit</string>
+    <string name="option_tag_del_text">Remove</string>
 
     <string name="option_pending_search_text">Search</string>
     <string name="option_pending_completed_text">Completed Todos</string>
@@ -62,6 +64,13 @@
     <string name="add_tag_dialog_cancel_text">Cancel</string>
     <string name="add_tag_text_text_color_text">Tag Text Color</string>
     <string name="add_tag_text_background_color_text">Tag Background Color</string>
+    <string name="tag_title_add_success_msg">Tag added successfully !</string>
+    <string name="tag_delete_dialog_title">Tag delete Confirmation</string>
+    <string name="tag_delete_dialog_msg">If you delete then your todos associated with this tag will also be delete.Do you really want to delete ?</string>
+    <string name="tag_delete_cancel">Cancel</string>
+    <string name="tag_delete_yes">Delete</string>
+    <string name="tag_deleted_success">Tag deleted successfully !</string>
+    <string name="tag_no_delete">Tag not deleted !</string>
 
     <string name="tag_title_hint">Enter tag title</string>
     <string name="pref_category_title_about">Developer Info</string>

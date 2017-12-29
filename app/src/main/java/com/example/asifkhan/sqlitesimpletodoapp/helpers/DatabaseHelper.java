@@ -24,8 +24,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_TODO_CONTENT="todo_content";
     public static final String COL_TODO_TAG="todo_tag";
     public static final String COL_TODO_DATE="todo_date";
-    public static final String COL_TODO_START_TIME="todo_start_time";
-    public static final String COL_TODO_END_TIME="todo_end_time";
+    public static final String COL_TODO_TIME="todo_time";
+    public static final String COL_TODO_STATUS="todo_status";
+    public static final String COL_DEFAULT_STATUS="pending";
+    public static final String COL_STATUS_COMPLETED="completed";
 
     //forcing foreign key
     public static final String FORCE_FOREIGN_KEY="PRAGMA foreign_keys=ON";
@@ -38,10 +40,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //creating todos table query
     private static final String CREATE_TODOS_TABLE="CREATE TABLE IF NOT EXISTS " + TABLE_TODO_NAME+"("+
             COL_TODO_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
-            COL_TODO_TITLE+" TEXT NOT NULL UNIQUE,"+COL_TODO_CONTENT+" TEXT NOT NULL,"+
+            COL_TODO_TITLE+" TEXT NOT NULL,"+COL_TODO_CONTENT+" TEXT NOT NULL,"+
             COL_TODO_TAG +" INTEGER NOT NULL,"+COL_TODO_DATE+" TEXT NOT NULL,"+
-            COL_TODO_START_TIME+" TEXT NOT NULL,"+COL_TODO_END_TIME+" TEXT NOT NULL,"+
-            "FOREIGN KEY("+COL_TODO_TAG+") REFERENCES "+TABLE_TAG_NAME+"("+COL_TAG_ID+") ON UPDATE CASCADE ON DELETE CASCADE"+")";
+            COL_TODO_TIME+" TEXT NOT NULL,"+COL_TODO_STATUS+" TEXT NOT NULL DEFAULT " + COL_DEFAULT_STATUS+
+            ",FOREIGN KEY("+COL_TODO_TAG+") REFERENCES "+TABLE_TAG_NAME+"("+COL_TAG_ID+") ON UPDATE CASCADE ON DELETE CASCADE"+")";
 
     //dropping tags table
     private static final String DROP_TAGS_TABLE="DROP TABLE IF EXISTS " + TABLE_TAG_NAME;

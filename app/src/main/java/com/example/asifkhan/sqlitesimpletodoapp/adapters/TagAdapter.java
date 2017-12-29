@@ -60,24 +60,7 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
                             case R.id.edit:
                                 return true;
                             case R.id.delete:
-                                AlertDialog.Builder builder=new AlertDialog.Builder(context);
-                                builder.setTitle(R.string.tag_delete_dialog_title);
-                                builder.setMessage(R.string.tag_delete_dialog_msg);
-                                builder.setPositiveButton(R.string.tag_delete_yes, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        if(tagDBHelper.removeTag(tagsModel.getTagID())){
-                                            Toast.makeText(context, R.string.tag_deleted_success, Toast.LENGTH_SHORT).show();
-                                            context.startActivity(new Intent(context, AllTags.class));
-                                        }
-                                    }
-                                }).setNegativeButton(R.string.tag_delete_cancel, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        Toast.makeText(context, R.string.tag_no_delete, Toast.LENGTH_SHORT).show();
-                                        context.startActivity(new Intent(context, AllTags.class));
-                                    }
-                                }).create().show();
+                                removeTag(tagsModel.getTagID());
                                 return true;
                             default:
                                 return false;
@@ -101,5 +84,27 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
             tag_title=(TextView)itemView.findViewById(R.id.tag_title);
             tag_option=(ImageView)itemView.findViewById(R.id.tags_option);
         }
+    }
+
+    //remove tag
+    private void removeTag(final int tagID){
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        builder.setTitle(R.string.tag_delete_dialog_title);
+        builder.setMessage(R.string.tag_delete_dialog_msg);
+        builder.setPositiveButton(R.string.tag_delete_yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(tagDBHelper.removeTag(tagID)){
+                    Toast.makeText(context, R.string.tag_deleted_success, Toast.LENGTH_SHORT).show();
+                    context.startActivity(new Intent(context, AllTags.class));
+                }
+            }
+        }).setNegativeButton(R.string.tag_delete_cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(context, R.string.tag_no_delete, Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, AllTags.class));
+            }
+        }).create().show();
     }
 }

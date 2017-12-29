@@ -3,6 +3,7 @@ package com.example.asifkhan.sqlitesimpletodoapp.adapters;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -58,6 +59,7 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.edit:
+                                editTag(tagsModel.getTagID());
                                 return true;
                             case R.id.delete:
                                 removeTag(tagsModel.getTagID());
@@ -106,5 +108,43 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
                 context.startActivity(new Intent(context, AllTags.class));
             }
         }).create().show();
+    }
+
+    //update tag
+    private void editTag(final int tagID){
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View view=layoutInflater.inflate(R.layout.edit_tag_dialog,null);
+        builder.setView(view);
+        final TextInputEditText tagEditTitle=(TextInputEditText)view.findViewById(R.id.edit_tag_title);
+        tagEditTitle.setText(tagDBHelper.fetchTagTitle(tagID));
+        final TextView cancel=(TextView)view.findViewById(R.id.cancel);
+        final TextView editNewtag=(TextView)view.findViewById(R.id.edit_new_tag);
+
+        editNewtag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String getTagTitle=tagEditTitle.getText().toString();
+                boolean isTagEmpty=tagEditTitle.getText().toString().isEmpty();
+                boolean tagExists=tagDBHelper.tagExists(getTagTitle);
+
+                if(isTagEmpty){
+                    tagEditTitle.setError("Tag title required !");
+                }else if(tagExists){
+                    tagEditTitle.setError("Tag title already exists!");
+                }else if(tagDBHelper.saveTag(new TagsModel(tagID,getTagTitle))){
+                    Toast.makeText(context, R.string.tag_saved_success, Toast.LENGTH_SHORT).show();
+                    context.startActivity(new Intent(context, AllTags.class));
+                }
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, R.string.tag_no_save, Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, AllTags.class));
+            }
+        });
+        builder.create().show();
     }
 }

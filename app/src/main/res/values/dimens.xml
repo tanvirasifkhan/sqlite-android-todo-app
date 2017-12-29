@@ -21,14 +21,17 @@
 
     <dimen name="tag_card_view_margin">5dp</dimen>
     <dimen name="tag_card_view_elevation">3dp</dimen>
-    <dimen name="tag_title_text_size">16sp</dimen>
+    <dimen name="tag_title_text_size">18sp</dimen>
 
     <dimen name="tag_title_left_margin">10dp</dimen>
     <dimen name="tag_title_right_margin">10dp</dimen>
-    <dimen name="tag_title_top_margin">10dp</dimen>
-    <dimen name="tag_title_bottom_margin">10dp</dimen>
-    <dimen name="tag_option_icon_margin_top">10dp</dimen>
+    <dimen name="tag_title_top_margin">15dp</dimen>
+    <dimen name="tag_title_bottom_margin">15dp</dimen>
+    <dimen name="tag_option_icon_margin_top">15dp</dimen>
     <dimen name="tag_option_icon_margin_right">15dp</dimen>
+    <dimen name="tag_dialog_linear_margin_right">15dp</dimen>
+    <dimen name="tag_dialog_linear_margin_bottom">20dp</dimen>
+    <dimen name="tag_dialog_add_margin_left">15dp</dimen>
 
     <dimen name="pending_todo_title_left_margin">10dp</dimen>
     <dimen name="pending_todo_title_right_margin">10dp</dimen>

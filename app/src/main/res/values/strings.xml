@@ -60,19 +60,27 @@
     <string name="add_todo_dialog_cancel_text">Cancel</string>
 
     <string name="add_tag_dialog_title">Add New Tag</string>
+    <string name="edit_tag_dialog_title">Edit Tag</string>
     <string name="add_tag_dialog_positive_text">Add New Tag</string>
+    <string name="edit_tag_dialog_positive_text">Save</string>
     <string name="add_tag_dialog_cancel_text">Cancel</string>
     <string name="add_tag_text_text_color_text">Tag Text Color</string>
     <string name="add_tag_text_background_color_text">Tag Background Color</string>
     <string name="tag_title_add_success_msg">Tag added successfully !</string>
     <string name="tag_delete_dialog_title">Tag delete Confirmation</string>
-    <string name="tag_delete_dialog_msg">If you delete then your todos associated with this tag will also be delete.Do you really want to delete ?</string>
+    <string name="tag_delete_dialog_msg">If you delete then your todos associated with this tag will also be delete.Do you really want to deleted ?</string>
     <string name="tag_delete_cancel">Cancel</string>
     <string name="tag_delete_yes">Delete</string>
     <string name="tag_deleted_success">Tag deleted successfully !</string>
     <string name="tag_no_delete">Tag not deleted !</string>
+    <string name="edit_tag_dialog_cancel_text">Cancel</string>
+    <string name="tag_edit_yes">Save</string>
+    <string name="tag_edit_cancel">Cancel</string>
+    <string name="tag_saved_success">Tag saved successfully !</string>
+    <string name="tag_no_save">Tag not changed !</string>
 
     <string name="tag_title_hint">Enter tag title</string>
+    <string name="edit_tag_title_hint">Enter new tag title</string>
     <string name="pref_category_title_about">Developer Info</string>
 
 </resources>

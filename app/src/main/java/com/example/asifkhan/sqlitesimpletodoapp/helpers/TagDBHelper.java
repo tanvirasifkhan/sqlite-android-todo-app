@@ -75,4 +75,30 @@ public class TagDBHelper{
         sqLiteDatabase.close();
         return true;
     }
+
+    //update tag from the database according to the tag id
+    public boolean saveTag(TagsModel tagsModel){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(DatabaseHelper.COL_TAG_TITLE,tagsModel.getTagTitle());
+        sqLiteDatabase.update(DatabaseHelper.TABLE_TAG_NAME,contentValues,DatabaseHelper.COL_TAG_ID+"=?",
+                new String[]{String.valueOf(tagsModel.getTagID())});
+        sqLiteDatabase.close();
+        return true;
+    }
+
+    //fetch tag title from the database according to the tag id
+    public String fetchTagTitle(int tagID){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        String fetchTitle="SELECT " + DatabaseHelper.COL_TAG_TITLE + " FROM " + DatabaseHelper.TABLE_TAG_NAME
+                + " WHERE " + DatabaseHelper.COL_TAG_ID+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(fetchTitle,new String[]{String.valueOf(tagID)});
+        String title="";
+        if(cursor.moveToFirst()){
+            title=cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TAG_TITLE));
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return title;
+    }
 }

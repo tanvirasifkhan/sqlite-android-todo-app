@@ -5,9 +5,8 @@
     <dimen name="no_tags_available_size">16dp</dimen>
     <dimen name="no_completed_todo_title_size">16dp</dimen>
     <dimen name="floating_button_add_todo_margin">20dp</dimen>
-    <dimen name="todo_date_demo_title_margin">10dp</dimen>
 
-    <dimen name="pending_card_view_margin_top">3dp</dimen>
+    <dimen name="pending_card_view_margin_top">10dp</dimen>
     <dimen name="pending_card_view_margin_bottom">3dp</dimen>
     <dimen name="pending_card_view_margin_left">10dp</dimen>
     <dimen name="pending_card_view_margin_right">10dp</dimen>
@@ -56,6 +55,7 @@
     <dimen name="completed_todo_content_right_margin">10dp</dimen>
     <dimen name="completed_todo_content_bottom_margin">6dp</dimen>
     <dimen name="completed_todo_content_text_size">13sp</dimen>
+    <dimen name="completd_to_img_margin_right">20dp</dimen>
 
     <dimen name="pending_todo_info_section_margin_left">10dp</dimen>
     <dimen name="pending_todo_info_section_margin_right">10dp</dimen>
@@ -71,13 +71,16 @@
     <dimen name="todo_option_margin_right">15dp</dimen>
     <dimen name="todo_option_margin_top">30dp</dimen>
     <dimen name="new_todo_container_padding">10dp</dimen>
+    <dimen name="todo_dialog_linear_margin_right">15dp</dimen>
+    <dimen name="todo_dialog_linear_margin_top">15dp</dimen>
+    <dimen name="todo_dialog_linear_margin_bottom">20dp</dimen>
 
     <dimen name="drawable_input_padding">15dp</dimen>
     <dimen name="input_padding">15dp</dimen>
-    <dimen name="layout_weight">1</dimen>
 
     <dimen name="new_tag_dialog_container_margin">15dp</dimen>
     <dimen name="edit_tag_dialog_container_margin">15dp</dimen>
     <dimen name="add_new_tag_dialog_title_padding">15dp</dimen>
     <dimen name="edit_tag_dialog_title_padding">15dp</dimen>
+    <dimen name="todo_dialog_add_margin_left">15dp</dimen>
 </resources>

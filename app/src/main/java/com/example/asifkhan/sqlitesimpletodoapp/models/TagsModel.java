@@ -6,13 +6,11 @@ package com.example.asifkhan.sqlitesimpletodoapp.models;
 
 public class TagsModel {
     private int tagID;
-    private String tagTitle,tagBackgroundColor,tagTextColor;
+    private String tagTitle;
 
-    public TagsModel(int tagID, String tagTitle, String tagBackgroundColor, String tagTextColor) {
+    public TagsModel(int tagID, String tagTitle) {
         this.tagID = tagID;
         this.tagTitle = tagTitle;
-        this.tagBackgroundColor = tagBackgroundColor;
-        this.tagTextColor = tagTextColor;
     }
 
     public int getTagID() {
@@ -29,21 +27,5 @@ public class TagsModel {
 
     public void setTagTitle(String tagTitle) {
         this.tagTitle = tagTitle;
-    }
-
-    public String getTagBackgroundColor() {
-        return tagBackgroundColor;
-    }
-
-    public void setTagBackgroundColor(String tagBackgroundColor) {
-        this.tagBackgroundColor = tagBackgroundColor;
-    }
-
-    public String getTagTextColor() {
-        return tagTextColor;
-    }
-
-    public void setTagTextColor(String tagTextColor) {
-        this.tagTextColor = tagTextColor;
     }
 }

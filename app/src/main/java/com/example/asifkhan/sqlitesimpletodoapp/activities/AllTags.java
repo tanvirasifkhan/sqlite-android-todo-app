@@ -1,9 +1,11 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -89,11 +92,15 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
     //show add new tag dialog
     private void showNewTagDialog(){
         final AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setView(R.layout.add_new_tag_dialog);
+        LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View view=layoutInflater.inflate(R.layout.add_new_tag_dialog,null);
+        builder.setView(view);
+        final TextInputEditText tagTitle=(TextInputEditText)view.findViewById(R.id.tag_title);
         builder.setPositiveButton(R.string.add_tag_dialog_positive_text, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
+                String getTagTitle=tagTitle.getText().toString();
+                boolean isTagEmpty=tagTitle.getText().toString().isEmpty();
             }
         }).setNegativeButton(R.string.add_tag_dialog_cancel_text, new DialogInterface.OnClickListener() {
             @Override

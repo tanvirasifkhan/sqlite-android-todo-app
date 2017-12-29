@@ -1,5 +1,7 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,10 +11,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.fabAddTodo:
-                startActivity(new Intent(this,AddNewTodo.class));
+                showNewTodoDialog();
                 break;
         }
     }
@@ -152,5 +156,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //show add new todo dialog
+    private void showNewTodoDialog(){
+        final AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View view=layoutInflater.inflate(R.layout.add_new_todo_dialog,null);
+        builder.setView(view);
+        builder.setPositiveButton(R.string.add_todo_dialog_positive_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).setNegativeButton(R.string.add_todo_dialog_cancel_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).create().show();
     }
 }

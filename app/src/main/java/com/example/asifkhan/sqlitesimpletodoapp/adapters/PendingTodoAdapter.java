@@ -1,13 +1,11 @@
 package com.example.asifkhan.sqlitesimpletodoapp.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
@@ -44,8 +42,6 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         holder.todoDate.setText(pendingTodoModel.getTodoDate());
         holder.todoTimeFrom.setText(pendingTodoModel.getTodoTimeFrom());
         holder.todoTimeTo.setText(pendingTodoModel.getToTimeTo());
-        holder.todoPriority.setText(pendingTodoModel.getTodoPriority());
-        holder.relativeLayout.setBackgroundColor(Color.parseColor(pendingTodoModel.getTodoColor()));
         holder.option.setOnClickListener(this);
     }
 
@@ -63,12 +59,10 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
     }
 
     public class PendingDataHolder extends RecyclerView.ViewHolder {
-        TextView dateTitle,todoTitle,todoContent,todoTag,todoDate,todoTimeFrom,todoTimeTo,todoPriority;
-        RelativeLayout relativeLayout;
+        TextView dateTitle,todoTitle,todoContent,todoTag,todoDate,todoTimeFrom,todoTimeTo;
         ImageView option;
         public PendingDataHolder(View itemView) {
             super(itemView);
-            relativeLayout=(RelativeLayout)itemView.findViewById(R.id.each_pending_todo_section);
             dateTitle=(TextView)itemView.findViewById(R.id.pending_todo_date_title);
             todoTitle=(TextView)itemView.findViewById(R.id.pending_todo_title);
             todoContent=(TextView)itemView.findViewById(R.id.pending_todo_content);
@@ -76,7 +70,6 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
             todoDate=(TextView)itemView.findViewById(R.id.todo_date);
             todoTimeFrom=(TextView)itemView.findViewById(R.id.todo_time_from);
             todoTimeTo=(TextView)itemView.findViewById(R.id.todo_time_to);
-            todoPriority=(TextView)itemView.findViewById(R.id.todo_priority);
             option=(ImageView)itemView.findViewById(R.id.option);
         }
     }

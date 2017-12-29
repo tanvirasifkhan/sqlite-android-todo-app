@@ -7,21 +7,18 @@ package com.example.asifkhan.sqlitesimpletodoapp.models;
 public class CompletedTodoModel {
     private int todoID;
     private String todoTitle,todoContent,todoDate,
-            todoTimeFrom,toTimeTo,todoPriority,todoTag,todoColor,todoTextColor;
+            todoTimeFrom,toTimeTo,todoTag;
 
     public CompletedTodoModel(){}
 
-    public CompletedTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTimeFrom, String toTimeTo, String todoPriority, String todoTag, String todoColor,String todoTextColor) {
+    public CompletedTodoModel(int todoID, String todoTitle, String todoContent, String todoDate, String todoTimeFrom, String toTimeTo,String todoTag) {
         this.todoID = todoID;
         this.todoTitle = todoTitle;
         this.todoContent = todoContent;
         this.todoDate = todoDate;
         this.todoTimeFrom = todoTimeFrom;
         this.toTimeTo = toTimeTo;
-        this.todoPriority = todoPriority;
         this.todoTag = todoTag;
-        this.todoColor = todoColor;
-        this.todoTextColor=todoTextColor;
     }
 
     public int getTodoID() {
@@ -72,35 +69,11 @@ public class CompletedTodoModel {
         this.toTimeTo = toTimeTo;
     }
 
-    public String getTodoPriority() {
-        return todoPriority;
-    }
-
-    public void setTodoPriority(String todoPriority) {
-        this.todoPriority = todoPriority;
-    }
-
     public String getTodoTag() {
         return todoTag;
     }
 
     public void setTodoTag(String todoTag) {
         this.todoTag = todoTag;
-    }
-
-    public String getTodoColor() {
-        return todoColor;
-    }
-
-    public void setTodoColor(String todoColor) {
-        this.todoColor = todoColor;
-    }
-
-    public String getTodoTextColor() {
-        return todoTextColor;
-    }
-
-    public void setTodoTextColor(String todoTextColor) {
-        this.todoTextColor = todoTextColor;
     }
 }

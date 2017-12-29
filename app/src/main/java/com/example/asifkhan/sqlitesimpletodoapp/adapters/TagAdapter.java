@@ -56,12 +56,10 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> i
     public class TagDataHolder extends RecyclerView.ViewHolder{
         TextView tag_title;
         ImageView tag_option;
-        RelativeLayout relativeLayout;
         public TagDataHolder(View itemView) {
             super(itemView);
             tag_title=(TextView)itemView.findViewById(R.id.tag_title);
             tag_option=(ImageView)itemView.findViewById(R.id.tags_option);
-            relativeLayout=(RelativeLayout)itemView.findViewById(R.id.each_tag);
         }
     }
 }

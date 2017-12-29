@@ -1,12 +1,10 @@
 package com.example.asifkhan.sqlitesimpletodoapp.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
@@ -42,8 +40,6 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         holder.todoDate.setText(completedTodoModel.getTodoDate());
         holder.todoTimeFrom.setText(completedTodoModel.getTodoTimeFrom());
         holder.todoTimeTo.setText(completedTodoModel.getToTimeTo());
-        holder.todoPriority.setText(completedTodoModel.getTodoPriority());
-        holder.relativeLayout.setBackgroundColor(Color.parseColor(completedTodoModel.getTodoColor()));
     }
 
     @Override
@@ -52,18 +48,15 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
     }
 
     public class CompletedDataHolder extends RecyclerView.ViewHolder {
-        TextView todoTitle,todoContent,todoTag,todoDate,todoTimeFrom,todoTimeTo,todoPriority;
-        RelativeLayout relativeLayout;
+        TextView todoTitle,todoContent,todoTag,todoDate,todoTimeFrom,todoTimeTo;
         public CompletedDataHolder(View itemView) {
             super(itemView);
-            relativeLayout=(RelativeLayout)itemView.findViewById(R.id.each_pending_todo_section);
             todoTitle=(TextView)itemView.findViewById(R.id.pending_todo_title);
             todoContent=(TextView)itemView.findViewById(R.id.pending_todo_content);
             todoTag=(TextView)itemView.findViewById(R.id.todo_tag);
             todoDate=(TextView)itemView.findViewById(R.id.todo_date);
             todoTimeFrom=(TextView)itemView.findViewById(R.id.todo_time_from);
             todoTimeTo=(TextView)itemView.findViewById(R.id.todo_time_to);
-            todoPriority=(TextView)itemView.findViewById(R.id.todo_priority);
         }
     }
 }

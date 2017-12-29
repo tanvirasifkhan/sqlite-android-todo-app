@@ -19,9 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
 import com.example.asifkhan.sqlitesimpletodoapp.adapters.TagAdapter;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.TagDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.models.TagsModel;
 
 import java.util.ArrayList;
@@ -32,6 +36,8 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
     private TagAdapter tagAdapter;
     private LinearLayoutManager linearLayoutManager;
     private FloatingActionButton fabAddTag;
+    private TagDBHelper tagDBHelper;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +58,18 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
     //load all the tags
     private void loadTags(){
         allTags=(RecyclerView)findViewById(R.id.viewAllTags);
-        tagsModels=new ArrayList<>();
-        tagAdapter=new TagAdapter(tagsModels,this);
+        linearLayout=(LinearLayout)findViewById(R.id.no_tags_available);
+        tagDBHelper=new TagDBHelper(this);
+        if(tagDBHelper.countTags()==0){
+            linearLayout.setVisibility(View.VISIBLE);
+            allTags.setVisibility(View.GONE);
+        }else{
+            allTags.setVisibility(View.VISIBLE);
+            tagsModels=new ArrayList<>();
+            tagsModels=tagDBHelper.fetchTags();
+            tagAdapter=new TagAdapter(tagsModels,this);
+            linearLayout.setVisibility(View.GONE);
+        }
         linearLayoutManager=new LinearLayoutManager(this);
         allTags.setAdapter(tagAdapter);
         allTags.setLayoutManager(linearLayoutManager);
@@ -96,17 +112,34 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
         final View view=layoutInflater.inflate(R.layout.add_new_tag_dialog,null);
         builder.setView(view);
         final TextInputEditText tagTitle=(TextInputEditText)view.findViewById(R.id.tag_title);
-        builder.setPositiveButton(R.string.add_tag_dialog_positive_text, new DialogInterface.OnClickListener() {
+        final TextView cancel=(TextView)view.findViewById(R.id.cancel);
+        final TextView addNewtag=(TextView)view.findViewById(R.id.add_new_tag);
+
+        addNewtag.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(View view) {
                 String getTagTitle=tagTitle.getText().toString();
                 boolean isTagEmpty=tagTitle.getText().toString().isEmpty();
-            }
-        }).setNegativeButton(R.string.add_tag_dialog_cancel_text, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+                boolean tagExists=tagDBHelper.tagExists(getTagTitle);
 
+                if(isTagEmpty){
+                    tagTitle.setError("Tag title required !");
+                }else if(tagExists){
+                    tagTitle.setError("Tag title already exists!");
+                }else {
+                    if(tagDBHelper.addNewTag(new TagsModel(getTagTitle))){
+                        Toast.makeText(AllTags.this, R.string.tag_title_add_success_msg, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(AllTags.this,AllTags.class));
+                    }
+                }
             }
-        }).create().show();
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AllTags.this,AllTags.class));
+            }
+        });
+        builder.create().show();
     }
 }

@@ -48,6 +48,8 @@
     <string name="option_all_tags_text">All Tags</string>
 
     <string name="add_todo_dialog_title">Add New Todo</string>
+    <string name="save_todo_dialog_title">Save Todo</string>
+    <string name="edit_todo_dialog_title">Edit Todo</string>
     <string name="todo_title_hint">Enter todo title</string>
     <string name="todo_content_hint">Enter todo content</string>
     <string name="todo_date_hint">Enter todo date</string>

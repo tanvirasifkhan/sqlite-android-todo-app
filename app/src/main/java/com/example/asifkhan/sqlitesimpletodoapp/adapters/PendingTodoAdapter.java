@@ -32,6 +32,7 @@ import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by asifkhan on 12/27/17.
@@ -61,8 +62,12 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         final PendingTodoModel pendingTodoModel=pendingTodoModels.get(position);
         holder.todoTitle.setText(pendingTodoModel.getTodoTitle());
         holder.todoContent.setText(pendingTodoModel.getTodoContent());
+        Calendar calendar=Calendar.getInstance();
+        calendar.set(Calendar.YEAR,todoDBHelper.fetchYear(pendingTodoModel.getTodoID()));
+        calendar.set(Calendar.MONTH,todoDBHelper.fetchMonth(pendingTodoModel.getTodoID()));
+        calendar.set(Calendar.DAY_OF_MONTH,todoDBHelper.fetchDay(pendingTodoModel.getTodoID()));
+        holder.todoDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime()));
         holder.todoTag.setText(pendingTodoModel.getTodoTag());
-        holder.todoDate.setText(pendingTodoModel.getTodoDate());
         holder.todoTime.setText(pendingTodoModel.getTodoTime());
         holder.option.setOnClickListener(new View.OnClickListener() {
             @Override

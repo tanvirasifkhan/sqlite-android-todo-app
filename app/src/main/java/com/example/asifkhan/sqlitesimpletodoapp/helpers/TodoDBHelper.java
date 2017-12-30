@@ -98,6 +98,36 @@ public class TodoDBHelper {
         return completedTodoModels;
     }
 
+    //fetch todos year from the database according to the todoid
+    public int fetchYear(int todoID){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        String query="SELECT strftime('%Y',"+DatabaseHelper.COL_TODO_DATE+") AS " + "YEAR" + " FROM " + DatabaseHelper.TABLE_TODO_NAME+
+                " WHERE " + DatabaseHelper.COL_TODO_ID+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(query,new String[]{String.valueOf(todoID)});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex("YEAR"));
+    }
+
+    //fetch todos month from the database according to the todoid
+    public int fetchMonth(int todoID){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        String query="SELECT strftime('%m',"+DatabaseHelper.COL_TODO_DATE+") AS " + "MONTH" + " FROM " + DatabaseHelper.TABLE_TODO_NAME+
+                " WHERE " + DatabaseHelper.COL_TODO_ID+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(query,new String[]{String.valueOf(todoID)});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex("MONTH"));
+    }
+
+    //fetch todos day from the database according to the todoid
+    public int fetchDay(int todoID){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        String query="SELECT strftime('%d',"+DatabaseHelper.COL_TODO_DATE+") AS " + "DAY" + " FROM " + DatabaseHelper.TABLE_TODO_NAME+
+                " WHERE " + DatabaseHelper.COL_TODO_ID+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(query,new String[]{String.valueOf(todoID)});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex("DAY"));
+    }
+
     //update todos according to the todos id
     public boolean updateTodo(PendingTodoModel pendingTodoModel){
         SQLiteDatabase sqLiteDatabase=this.databaseHelper.getWritableDatabase();

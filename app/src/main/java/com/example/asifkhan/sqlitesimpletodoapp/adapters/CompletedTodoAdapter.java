@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.TagDBHelper;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.TodoDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.models.CompletedTodoModel;
 import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by asifkhan on 12/27/17.
@@ -21,6 +25,7 @@ import java.util.ArrayList;
 public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdapter.CompletedDataHolder>{
     private ArrayList<CompletedTodoModel> completedTodoModels;
     private Context context;
+    private TodoDBHelper todoDBHelper;
 
     public CompletedTodoAdapter(ArrayList<CompletedTodoModel> completedTodoModels, Context context) {
         this.completedTodoModels = completedTodoModels;
@@ -35,12 +40,17 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
 
     @Override
     public void onBindViewHolder(CompletedTodoAdapter.CompletedDataHolder holder, int position) {
+        todoDBHelper=new TodoDBHelper(context);
         CompletedTodoModel completedTodoModel=completedTodoModels.get(position);
         holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         holder.todoTitle.setText(completedTodoModel.getTodoTitle());
         holder.todoContent.setText(completedTodoModel.getTodoContent());
         holder.todoTag.setText(completedTodoModel.getTodoTag());
-        holder.todoDate.setText(completedTodoModel.getTodoDate());
+        Calendar calendar=Calendar.getInstance();
+        calendar.set(Calendar.YEAR,todoDBHelper.fetchYear(completedTodoModel.getTodoID()));
+        calendar.set(Calendar.MONTH,todoDBHelper.fetchMonth(completedTodoModel.getTodoID()));
+        calendar.set(Calendar.DAY_OF_MONTH,todoDBHelper.fetchDay(completedTodoModel.getTodoID()));
+        holder.todoDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime()));
         holder.todoTime.setText(completedTodoModel.getTodoTime());
     }
 

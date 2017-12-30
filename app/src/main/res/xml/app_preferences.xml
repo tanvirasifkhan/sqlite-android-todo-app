@@ -10,25 +10,46 @@
 
         <Preference
             android:title="Find on Facebook"
+            android:key="find_on_facebook"
             android:icon="@drawable/ic_find_in_page"
-            android:summary="facebook.com/tanvirasifkhan"/>
+            android:summary="facebook.com/tanvirasifkhan">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.facebook.com/tanvirasifkhan"/>
+        </Preference>
 
         <Preference
             android:title="Find on Github"
             android:icon="@drawable/ic_location_searching"
-            android:summary="github.com/asifkhantanvir"/>
+            android:summary="github.com/asifkhantanvir">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://github.com/asifkhantanvir"/>
+        </Preference>
 
         <Preference
             android:key="rate_us"
             android:title="Rate us"
             android:icon="@drawable/ic_star_border"
-            android:summary="rate us on play store"/>
+            android:summary="rate us on play store">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/details?id=com.todo.asifkhan.sqlitesimpletodoapp"/>
+        </Preference>
 
         <Preference
             android:key="more_apps"
             android:title="More apps"
             android:icon="@drawable/ic_apps"
-            android:summary="more apps on play store"/>
+            android:summary="more apps on play store">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/developer?id=Tanvir+Asif+Khan"/>
+        </Preference>
 
         <Preference
             android:title="App version"

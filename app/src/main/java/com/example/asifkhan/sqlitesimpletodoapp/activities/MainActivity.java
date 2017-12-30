@@ -18,6 +18,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -143,6 +144,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.pending_task_options,menu);
+        MenuItem menuItem=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView)menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText=newText.toLowerCase();
+                ArrayList<PendingTodoModel> newPendingTodoModels=new ArrayList<>();
+                for(PendingTodoModel pendingTodoModel:pendingTodoModels){
+                    String getTodoTitle=pendingTodoModel.getTodoTitle().toLowerCase();
+                    String getTodoContent=pendingTodoModel.getTodoContent().toLowerCase();
+                    String getTodoTag=pendingTodoModel.getTodoTag().toLowerCase();
+
+                    if(getTodoTitle.contains(newText) || getTodoContent.contains(newText) || getTodoTag.contains(newText)){
+                        newPendingTodoModels.add(pendingTodoModel);
+                    }
+                }
+                pendingTodoAdapter.filterTodos(newPendingTodoModels);
+                pendingTodoAdapter.notifyDataSetChanged();
+                return true;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 

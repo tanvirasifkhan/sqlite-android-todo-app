@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
 import com.example.asifkhan.sqlitesimpletodoapp.adapters.PendingTodoAdapter;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.IntentExtras;
 import com.example.asifkhan.sqlitesimpletodoapp.helpers.TagDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.helpers.TodoDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
@@ -205,15 +206,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.settings) {
             startActivity(new Intent(this,AppSettings.class));
         } else if (id == R.id.facebook) {
-
+            IntentExtras.findOnFacebook(MainActivity.this);
         } else if (id == R.id.github) {
-
+            IntentExtras.findOnGithub(MainActivity.this);
         }else if(id==R.id.rate_us){
-
+            IntentExtras.rateOnPlayStore(MainActivity.this);
         }else if(id==R.id.share){
-
+            IntentExtras.shareThisApp(MainActivity.this);
         }else if(id==R.id.more_apps){
-
+            IntentExtras.findMoreApps(MainActivity.this);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -282,7 +283,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        todoDate.setText(i+"-"+i1+"-"+i2);
+                        todoDate.setText(String.valueOf(i)+"-"+String.valueOf(i1)+"-"+String.valueOf(i2));
                     }
                 },year,month,day);
                 datePickerDialog.show();
@@ -297,8 +298,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
                         Calendar newCalendar=Calendar.getInstance();
-                        newCalendar.set(Calendar.HOUR,i);
-                        newCalendar.set(Calendar.MINUTE,i1);
+                        newCalendar.set(0,0,0,i,i1);
                         String timeFormat=DateFormat.getTimeInstance(DateFormat.SHORT).format(newCalendar.getTime());
                         todoTime.setText(timeFormat);
                     }

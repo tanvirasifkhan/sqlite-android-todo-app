@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.asifkhan.sqlitesimpletodoapp.models.CompletedTodoModel;
 import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 
 import java.util.ArrayList;
@@ -40,8 +41,16 @@ public class TodoDBHelper {
     //count todos from the database
     public int countTodos(){
         SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
-        String count="SELECT " + DatabaseHelper.COL_TODO_ID + " FROM " + DatabaseHelper.TABLE_TODO_NAME;
-        Cursor cursor=sqLiteDatabase.rawQuery(count,null);
+        String count="SELECT " + DatabaseHelper.COL_TODO_ID + " FROM " + DatabaseHelper.TABLE_TODO_NAME + " WHERE " + DatabaseHelper.COL_TODO_STATUS+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(count,new String[]{DatabaseHelper.COL_DEFAULT_STATUS});
+        return cursor.getCount();
+    }
+
+    //count completed todos from the database
+    public int countCompletedTodos(){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        String count="SELECT " + DatabaseHelper.COL_TODO_ID + " FROM " + DatabaseHelper.TABLE_TODO_NAME + " WHERE " + DatabaseHelper.COL_TODO_STATUS+"=?";
+        Cursor cursor=sqLiteDatabase.rawQuery(count,new String[]{DatabaseHelper.COL_STATUS_COMPLETED});
         return cursor.getCount();
     }
 
@@ -50,8 +59,8 @@ public class TodoDBHelper {
         SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
         ArrayList<PendingTodoModel> pendingTodoModels=new ArrayList<>();
         String query="SELECT * FROM " + DatabaseHelper.TABLE_TODO_NAME+" INNER JOIN " + DatabaseHelper.TABLE_TAG_NAME+" ON " + DatabaseHelper.TABLE_TODO_NAME+"."+DatabaseHelper.COL_TODO_TAG+"="+
-                DatabaseHelper.TABLE_TAG_NAME+"."+DatabaseHelper.COL_TAG_ID + " ORDER BY " + DatabaseHelper.TABLE_TODO_NAME+"."+DatabaseHelper.COL_TODO_ID + " DESC";
-        Cursor cursor=sqLiteDatabase.rawQuery(query,null);
+                DatabaseHelper.TABLE_TAG_NAME+"."+DatabaseHelper.COL_TAG_ID + " WHERE " + DatabaseHelper.COL_TODO_STATUS+"=? ORDER BY " + DatabaseHelper.TABLE_TODO_NAME+"."+DatabaseHelper.COL_TODO_ID + " ASC";
+        Cursor cursor=sqLiteDatabase.rawQuery(query,new String[]{DatabaseHelper.COL_DEFAULT_STATUS});
         while (cursor.moveToNext()){
             PendingTodoModel pendingTodoModel=new PendingTodoModel();
             pendingTodoModel.setTodoID(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COL_TODO_ID)));
@@ -65,6 +74,28 @@ public class TodoDBHelper {
         cursor.close();
         sqLiteDatabase.close();
         return pendingTodoModels;
+    }
+
+    //fetch all the completed todos from the database
+    public ArrayList<CompletedTodoModel> fetchCompletedTodos(){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        ArrayList<CompletedTodoModel> completedTodoModels=new ArrayList<>();
+        String query="SELECT * FROM " + DatabaseHelper.TABLE_TODO_NAME+" INNER JOIN " + DatabaseHelper.TABLE_TAG_NAME+" ON " + DatabaseHelper.TABLE_TODO_NAME+"."+DatabaseHelper.COL_TODO_TAG+"="+
+                DatabaseHelper.TABLE_TAG_NAME+"."+DatabaseHelper.COL_TAG_ID + " WHERE " + DatabaseHelper.COL_TODO_STATUS+"=? ORDER BY " + DatabaseHelper.TABLE_TODO_NAME+"."+DatabaseHelper.COL_TODO_ID + " DESC";
+        Cursor cursor=sqLiteDatabase.rawQuery(query,new String[]{DatabaseHelper.COL_STATUS_COMPLETED});
+        while (cursor.moveToNext()){
+            CompletedTodoModel completedTodoModel=new CompletedTodoModel();
+            completedTodoModel.setTodoID(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COL_TODO_ID)));
+            completedTodoModel.setTodoTitle(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TODO_TITLE)));
+            completedTodoModel.setTodoContent(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TODO_CONTENT)));
+            completedTodoModel.setTodoTag(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TAG_TITLE)));
+            completedTodoModel.setTodoDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TODO_DATE)));
+            completedTodoModel.setTodoTime(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TODO_TIME)));
+            completedTodoModels.add(completedTodoModel);
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return completedTodoModels;
     }
 
     //update todos according to the todos id
@@ -82,10 +113,29 @@ public class TodoDBHelper {
         return true;
     }
 
+    //make todos completed according to the id
+    public boolean makeCompleted(int todoID){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(DatabaseHelper.COL_TODO_STATUS,DatabaseHelper.COL_STATUS_COMPLETED);
+        sqLiteDatabase.update(DatabaseHelper.TABLE_TODO_NAME,contentValues,DatabaseHelper.COL_TODO_ID+"=?",
+                new String[]{String.valueOf(todoID)});
+        sqLiteDatabase.close();
+        return true;
+    }
+
     //remove todos according to the todos id
     public boolean removeTodo(int todoID){
         SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
         sqLiteDatabase.delete(DatabaseHelper.TABLE_TODO_NAME,DatabaseHelper.COL_TODO_ID+"=?",new String[]{String.valueOf(todoID)});
+        sqLiteDatabase.close();
+        return true;
+    }
+
+    //remove all the completed todos
+    public boolean removeCompletedTodos(){
+        SQLiteDatabase sqLiteDatabase=this.databaseHelper.getReadableDatabase();
+        sqLiteDatabase.delete(DatabaseHelper.TABLE_TODO_NAME,DatabaseHelper.COL_TODO_STATUS+"=?",new String[]{DatabaseHelper.COL_STATUS_COMPLETED});
         sqLiteDatabase.close();
         return true;
     }

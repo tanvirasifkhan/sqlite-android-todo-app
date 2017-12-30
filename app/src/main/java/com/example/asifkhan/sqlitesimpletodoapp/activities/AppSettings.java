@@ -1,8 +1,10 @@
 package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;

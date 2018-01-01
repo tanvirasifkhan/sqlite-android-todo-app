@@ -1,7 +1,9 @@
 package com.example.asifkhan.sqlitesimpletodoapp.adapters;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +46,7 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         CompletedTodoModel completedTodoModel=completedTodoModels.get(position);
         holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         holder.todoTitle.setText(completedTodoModel.getTodoTitle());
+        applyTextColor(holder.todoTitle);
         holder.todoContent.setText(completedTodoModel.getTodoContent());
         holder.todoTag.setText(completedTodoModel.getTodoTag());
         holder.todoDate.setText(completedTodoModel.getTodoDate());
@@ -72,5 +75,24 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         completedTodoModels=new ArrayList<>();
         completedTodoModels.addAll(newCompletedTodoModels);
         notifyDataSetChanged();
+    }
+
+    //apply theme for text views
+    public void applyTextColor(TextView textView){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            context.setTheme(R.style.AppTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            context.setTheme(R.style.RedTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            context.setTheme(R.style.GreenTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            context.setTheme(R.style.VioleteTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryViolete));
+        }
     }
 }

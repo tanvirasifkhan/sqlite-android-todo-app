@@ -46,7 +46,7 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_tags);
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
-        setTitle(R.string.all_tags_title);
+        setTitle(getString(R.string.all_tags_title));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             Window window=this.getWindow();

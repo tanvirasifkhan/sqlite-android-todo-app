@@ -46,11 +46,7 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         holder.todoTitle.setText(completedTodoModel.getTodoTitle());
         holder.todoContent.setText(completedTodoModel.getTodoContent());
         holder.todoTag.setText(completedTodoModel.getTodoTag());
-        Calendar calendar=Calendar.getInstance();
-        calendar.set(Calendar.YEAR,todoDBHelper.fetchYear(completedTodoModel.getTodoID()));
-        calendar.set(Calendar.MONTH,todoDBHelper.fetchMonth(completedTodoModel.getTodoID()));
-        calendar.set(Calendar.DAY_OF_MONTH,todoDBHelper.fetchDay(completedTodoModel.getTodoID()));
-        holder.todoDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime()));
+        holder.todoDate.setText(completedTodoModel.getTodoDate());
         holder.todoTime.setText(completedTodoModel.getTodoTime());
     }
 

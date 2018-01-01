@@ -40,7 +40,7 @@ public class CompletedTodos extends AppCompatActivity {
         setContentView(R.layout.activity_completed_todos);
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(R.string.complete_todo_activity_title);
+        setTitle(getString(R.string.complete_todo_activity_title));
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             Window window=this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

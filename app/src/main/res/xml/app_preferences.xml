@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
+        android:title="General">
+
+        <ListPreference
+            android:title="App Theme"
+            android:icon="@drawable/ic_app_theme"
+            android:key="app_theme"
+            android:entries="@array/theme_names"
+            android:entryValues="@array/theme_values"
+            android:selectable="true"
+            android:defaultValue="Default"
+            android:summary="change application theme"/>
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/pref_category_title_about">
 
         <Preference

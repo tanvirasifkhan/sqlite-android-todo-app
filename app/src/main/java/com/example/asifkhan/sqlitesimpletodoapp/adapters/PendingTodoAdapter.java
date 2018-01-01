@@ -5,6 +5,8 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -131,6 +133,7 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.edit_todo_dialog,null);
         builder.setView(view);
+        applyThemeTextView((TextView)view.findViewById(R.id.edit_todo_dialog_title));
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
@@ -201,6 +204,8 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         });
         TextView cancel=(TextView)view.findViewById(R.id.cancel);
         TextView addTodo=(TextView)view.findViewById(R.id.add_new_todo);
+        applyTextColor(cancel);
+        applyTextColor(addTodo);
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -283,5 +288,43 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         pendingTodoModels=new ArrayList<>();
         pendingTodoModels.addAll(newPendingTodoModels);
         notifyDataSetChanged();
+    }
+
+    //apply theme for text views
+    public void applyThemeTextView(TextView textView){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            context.setTheme(R.style.AppTheme);
+            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            context.setTheme(R.style.RedTheme);
+            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            context.setTheme(R.style.GreenTheme);
+            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            context.setTheme(R.style.VioleteTheme);
+            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //apply text color for text views
+    public void applyTextColor(TextView textView){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            context.setTheme(R.style.AppTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            context.setTheme(R.style.RedTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            context.setTheme(R.style.GreenTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            context.setTheme(R.style.VioleteTheme);
+            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryViolete));
+        }
     }
 }

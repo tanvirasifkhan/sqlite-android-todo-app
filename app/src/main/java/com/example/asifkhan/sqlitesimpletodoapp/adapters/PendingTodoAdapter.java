@@ -62,11 +62,7 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         final PendingTodoModel pendingTodoModel=pendingTodoModels.get(position);
         holder.todoTitle.setText(pendingTodoModel.getTodoTitle());
         holder.todoContent.setText(pendingTodoModel.getTodoContent());
-        Calendar calendar=Calendar.getInstance();
-        calendar.set(Calendar.YEAR,todoDBHelper.fetchYear(pendingTodoModel.getTodoID()));
-        calendar.set(Calendar.MONTH,todoDBHelper.fetchMonth(pendingTodoModel.getTodoID()));
-        calendar.set(Calendar.DAY_OF_MONTH,todoDBHelper.fetchDay(pendingTodoModel.getTodoID()));
-        holder.todoDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime()));
+        holder.todoDate.setText(pendingTodoModel.getTodoDate());
         holder.todoTag.setText(pendingTodoModel.getTodoTag());
         holder.todoTime.setText(pendingTodoModel.getTodoTime());
         holder.option.setOnClickListener(new View.OnClickListener() {

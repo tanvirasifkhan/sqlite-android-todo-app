@@ -3,7 +3,9 @@ package com.example.asifkhan.sqlitesimpletodoapp.activities;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
@@ -44,16 +46,13 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        applyTheme();
         setContentView(R.layout.activity_all_tags);
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         setTitle(getString(R.string.all_tags_title));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            Window window=this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusBarColor));
-        }
+        applyThemeToolbar((Toolbar)findViewById(R.id.toolbar));
+        setStatusBarColor();
         loadTags();
     }
 
@@ -136,9 +135,12 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_tag_dialog,null);
         builder.setView(view);
+        applyThemeTextView((TextView)view.findViewById(R.id.add_tag_dialog_title));
         final TextInputEditText tagTitle=(TextInputEditText)view.findViewById(R.id.tag_title);
         final TextView cancel=(TextView)view.findViewById(R.id.cancel);
         final TextView addNewtag=(TextView)view.findViewById(R.id.add_new_tag);
+        applyTextColor(cancel);
+        applyTextColor(addNewtag);
 
         addNewtag.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,5 +168,103 @@ public class AllTags extends AppCompatActivity implements View.OnClickListener{
             }
         });
         builder.create().show();
+    }
+
+    //apply theme
+    public void applyTheme(){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+        }
+    }
+
+    //apply theme for toolbar
+    public void applyThemeToolbar(Toolbar toolbar){
+        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //apply theme for text views
+    public void applyThemeTextView(TextView textView){
+        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //apply text color for text views
+    public void applyTextColor(TextView textView){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //change the status bar color according to the theme
+    public void setStatusBarColor(){
+        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            Window window=this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            if(themeName.equals("Default")){
+                setTheme(R.style.AppTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
+            }else if(themeName.equals("Red")){
+                setTheme(R.style.RedTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkRed));
+            }else if(themeName.equals("Green")){
+                setTheme(R.style.GreenTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkGreen));
+            }else if(themeName.equals("Violete")){
+                setTheme(R.style.VioleteTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkViolete));
+            }
+        }
+
     }
 }

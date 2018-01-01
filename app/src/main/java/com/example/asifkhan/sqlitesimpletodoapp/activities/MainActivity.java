@@ -5,8 +5,10 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TextInputEditText;
@@ -61,10 +63,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        applyTheme();
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        applyThemeToolbar((Toolbar)findViewById(R.id.toolbar));
         setTitle(getString(R.string.app_title));
-        changeStatusBarColor();
+        setStatusBarColor();
         showDrawerLayout();
         navigationMenuInit();
         loadPendingTodos();
@@ -112,16 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
-    }
-
-    //change status bar color API>=21
-    private void changeStatusBarColor(){
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            Window window=this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusBarColor));
         }
     }
 
@@ -251,6 +245,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_todo_dialog,null);
         builder.setView(view);
+        applyThemeTextView((TextView)view.findViewById(R.id.add_todo_dialog_title));
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
@@ -309,6 +304,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         TextView cancel=(TextView)view.findViewById(R.id.cancel);
         TextView addTodo=(TextView)view.findViewById(R.id.add_new_todo);
+        applyTextColor(cancel);
+        applyTextColor(addTodo);
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -349,5 +346,103 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         builder.create().show();
+    }
+
+    //apply theme
+    public void applyTheme(){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+        }
+    }
+
+    //apply theme for toolbar
+    public void applyThemeToolbar(Toolbar toolbar){
+        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //apply theme for text views
+    public void applyThemeTextView(TextView textView){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //apply text color for text views
+    public void applyTextColor(TextView textView){
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if(themeName.equals("Default")){
+            setTheme(R.style.AppTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }else if(themeName.equals("Red")){
+            setTheme(R.style.RedTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimaryRed));
+        }else if(themeName.equals("Green")){
+            setTheme(R.style.GreenTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimaryGreen));
+        }else if(themeName.equals("Violete")){
+            setTheme(R.style.VioleteTheme);
+            textView.setTextColor(getResources().getColor(R.color.colorPrimaryViolete));
+        }
+    }
+
+    //change the status bar color according to the theme
+    public void setStatusBarColor(){
+        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        String themeName=sharedPreferences.getString("app_theme","Default");
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            Window window=this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            if(themeName.equals("Default")){
+                setTheme(R.style.AppTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
+            }else if(themeName.equals("Red")){
+                setTheme(R.style.RedTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkRed));
+            }else if(themeName.equals("Green")){
+                setTheme(R.style.GreenTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkGreen));
+            }else if(themeName.equals("Violete")){
+                setTheme(R.style.VioleteTheme);
+                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkViolete));
+            }
+        }
+
     }
 }

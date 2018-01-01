@@ -13,7 +13,7 @@
         <TextView
             android:id="@+id/edit_todo_dialog_title"
             android:text="@string/edit_todo_dialog_title"
-            android:background="@color/new_todo_dialog_title_color"
+            android:background="@color/colorPrimary"
             android:padding="@dimen/add_new_todo_dialog_title_padding"
             android:textColor="@android:color/white"
             android:layout_width="match_parent"
@@ -34,10 +34,6 @@
                     android:drawablePadding="@dimen/drawable_input_padding"
                     android:padding="@dimen/input_padding"
                     android:hint="@string/todo_title_hint"
-                    android:theme="@style/InputStyleTheme"
-                    android:foregroundTint="@color/input_foreground_color"
-                    android:textColorHint="@color/input_text_hint_color"
-                    app:backgroundTint="@color/input_background_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -52,10 +48,6 @@
                     android:drawablePadding="@dimen/drawable_input_padding"
                     android:padding="@dimen/input_padding"
                     android:hint="@string/todo_content_hint"
-                    android:theme="@style/InputStyleTheme"
-                    android:foregroundTint="@color/input_foreground_color"
-                    android:textColorHint="@color/input_text_hint_color"
-                    app:backgroundTint="@color/input_background_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -63,8 +55,8 @@
             <Spinner
                 android:id="@+id/todo_tag"
                 android:padding="@dimen/input_padding"
-                android:foregroundTint="@color/input_foreground_color"
-                android:textColorHint="@color/input_text_hint_color"
+                android:foregroundTint="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -79,10 +71,6 @@
                     android:drawablePadding="@dimen/drawable_input_padding"
                     android:padding="@dimen/input_padding"
                     android:hint="@string/todo_date_hint"
-                    android:theme="@style/InputStyleTheme"
-                    android:foregroundTint="@color/input_foreground_color"
-                    android:textColorHint="@color/input_text_hint_color"
-                    app:backgroundTint="@color/input_background_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -98,10 +86,6 @@
                     android:drawablePadding="@dimen/drawable_input_padding"
                     android:padding="@dimen/input_padding"
                     android:hint="@string/todo_time_hint"
-                    android:theme="@style/InputStyleTheme"
-                    android:foregroundTint="@color/input_foreground_color"
-                    android:textColorHint="@color/input_text_hint_color"
-                    app:backgroundTint="@color/input_background_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -118,7 +102,7 @@
                 <TextView
                     android:id="@+id/cancel"
                     android:text="@string/add_todo_dialog_cancel_text"
-                    android:textColor="@color/new_todo_dialog_title_color"
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -126,7 +110,7 @@
                     android:id="@+id/add_new_todo"
                     android:layout_marginLeft="@dimen/todo_dialog_add_margin_left"
                     android:text="@string/save_todo_dialog_title"
-                    android:textColor="@color/save_tag_dialog_title_color"
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>

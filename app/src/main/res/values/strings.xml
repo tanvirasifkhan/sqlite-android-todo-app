@@ -86,4 +86,19 @@
     <string name="edit_tag_title_hint">Enter new tag title</string>
     <string name="pref_category_title_about">Developer Info</string>
 
+
+    <string-array name="theme_names">
+        <item>Default</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Violete</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>Default</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Violete</item>
+    </string-array>
+
 </resources>

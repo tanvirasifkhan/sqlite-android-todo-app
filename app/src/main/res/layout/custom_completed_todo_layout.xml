@@ -26,7 +26,6 @@
                 android:layout_marginBottom="@dimen/completed_todo_title_bottom_margin"
                 android:layout_marginRight="@dimen/completed_todo_title_right_margin"
                 android:layout_marginTop="@dimen/completed_todo_title_top_margin"
-                android:textColor="@color/completed_todo_title_strickthrow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

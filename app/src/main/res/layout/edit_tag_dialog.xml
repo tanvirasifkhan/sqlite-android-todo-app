@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/edit_tag_dialog_title"
             android:text="@string/edit_tag_dialog_title"
-            android:background="@color/save_tag_dialog_title_color"
+            android:background="@color/colorPrimary"
             android:padding="@dimen/edit_tag_dialog_title_padding"
             android:textColor="@android:color/white"
             android:layout_width="match_parent"
@@ -37,10 +37,6 @@
                     android:drawablePadding="@dimen/drawable_input_padding"
                     android:padding="@dimen/input_padding"
                     android:hint="@string/edit_tag_title_hint"
-                    android:theme="@style/InputStyleTheme"
-                    android:foregroundTint="@color/input_foreground_color"
-                    android:textColorHint="@color/input_text_hint_color"
-                    app:backgroundTint="@color/input_background_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -57,7 +53,7 @@
             <TextView
                 android:id="@+id/cancel"
                 android:text="@string/edit_tag_dialog_cancel_text"
-                android:textColor="@color/add_new_tag_dialog_title_color"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -65,7 +61,7 @@
                 android:id="@+id/edit_new_tag"
                 android:layout_marginLeft="@dimen/edit_tag_dialog_add_margin_left"
                 android:text="@string/edit_tag_dialog_positive_text"
-                android:textColor="@color/save_tag_dialog_title_color"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>

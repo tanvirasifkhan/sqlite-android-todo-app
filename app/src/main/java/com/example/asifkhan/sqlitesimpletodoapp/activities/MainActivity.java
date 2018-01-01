@@ -58,13 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String getTagTitleString;
     private TodoDBHelper todoDBHelper;
     private LinearLayout linearLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        setTitle(R.string.app_title);
+        setTitle(getString(R.string.app_title));
         changeStatusBarColor();
         showDrawerLayout();
         navigationMenuInit();
@@ -91,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         pendingTodos.setLayoutManager(linearLayoutManager);
         addNewTodo=(FloatingActionButton)findViewById(R.id.fabAddTodo);
         addNewTodo.setOnClickListener(this);
-
     }
 
     @Override
@@ -241,6 +239,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //show add new todos dialog and adding the todos into the database
     private void showNewTodoDialog(){
+        //getting current calendar credentials
+        final Calendar calendar=Calendar.getInstance();
+        final int year=calendar.get(Calendar.YEAR);
+        final int month=calendar.get(Calendar.MONTH);
+        final int day=calendar.get(Calendar.DAY_OF_MONTH);
+        final int hour=calendar.get(Calendar.HOUR);
+        final int minute=calendar.get(Calendar.MINUTE);
+
         final AlertDialog.Builder builder=new AlertDialog.Builder(this);
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_todo_dialog,null);
@@ -268,14 +274,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final TextInputEditText todoDate=(TextInputEditText)view.findViewById(R.id.todo_date);
         final TextInputEditText todoTime=(TextInputEditText)view.findViewById(R.id.todo_time);
 
-        //getting current calendar credentials
-        final Calendar calendar=Calendar.getInstance();
-        final int year=calendar.get(Calendar.YEAR);
-        final int month=calendar.get(Calendar.MONTH);
-        final int day=calendar.get(Calendar.DAY_OF_MONTH);
-        final int hour=calendar.get(Calendar.HOUR);
-        final int minute=calendar.get(Calendar.MINUTE);
-
         //getting the tododate
         todoDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,7 +281,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        todoDate.setText(String.valueOf(i)+"-"+String.valueOf(i1)+"-"+String.valueOf(i2));
+                        calendar.set(Calendar.YEAR,i);
+                        calendar.set(Calendar.MONTH,i1);
+                        calendar.set(Calendar.DAY_OF_MONTH,i2);
+                        todoDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime()));
                     }
                 },year,month,day);
                 datePickerDialog.show();
@@ -297,9 +298,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 TimePickerDialog timePickerDialog=new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        Calendar newCalendar=Calendar.getInstance();
-                        newCalendar.set(0,0,0,i,i1);
-                        String timeFormat=DateFormat.getTimeInstance(DateFormat.SHORT).format(newCalendar.getTime());
+                        calendar.set(Calendar.HOUR,i);
+                        calendar.set(Calendar.MONTH,i1);
+                        String timeFormat=DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
                         todoTime.setText(timeFormat);
                     }
                 },hour,minute,false);

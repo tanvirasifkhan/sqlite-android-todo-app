@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="navigation_header_background_color">#2196F3</color>
-    <color name="statusBarColor">#03A9F4</color>
-    <color name="toolBarColor">#2196F3</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#2196F3</color>
+
+    <color name="colorPrimaryGreen">#16a085</color>
+    <color name="colorPrimaryDarkGreen">#1abc9c</color>
+    <color name="colorAccentGreen">#16a085</color>
+
+    <color name="colorPrimaryRed">#c0392b</color>
+    <color name="colorPrimaryDarkRed">#e74c3c</color>
+    <color name="colorAccentRed">#c0392b</color>
+
+    <color name="colorPrimaryViolete">#8e44ad</color>
+    <color name="colorPrimaryDarkViolete">#9b59b6</color>
+    <color name="colorAccentViolete">#8e44ad</color>
+
+
     <color name="ic_pending_todos_title_color">#999999</color>
     <color name="ic_completed_todos_title_color">#999999</color>
     <color name="ic_tags_available_color">#999999</color>
-    <color name="add_todo_fab_color">#2196F3</color>
-    <color name="completed_todo_title_strickthrow">#2196F3</color>
-    <color name="input_text_hint_color">#2196F3</color>
-    <color name="input_background_color">#2196F3</color>
-    <color name="input_foreground_color">#2196F3</color>
-    <color name="add_new_tag_dialog_title_color">#2196F3</color>
-    <color name="save_tag_dialog_title_color">#2196F3</color>
-    <color name="new_todo_dialog_title_color">#2196F3</color>
-
-    <color name="primary">#2196F3</color>
-    <color name="accent">#2196F3</color>
 </resources>

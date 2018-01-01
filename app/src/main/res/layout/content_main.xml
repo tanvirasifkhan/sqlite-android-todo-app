@@ -44,7 +44,6 @@
         android:src="@drawable/ic__add_new_todo"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        app:backgroundTint="@color/add_todo_fab_color"
         android:layout_margin="@dimen/floating_button_add_todo_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

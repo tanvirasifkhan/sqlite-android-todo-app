@@ -3,16 +3,27 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="InputStyleTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorControlNormal">@color/input_text_hint_color</item>
-        <item name="colorControlActivated">@color/input_text_hint_color</item>
-        <item name="colorControlHighlight">@color/input_text_hint_color</item>
-        <item name="android:textColorHint">@color/input_text_hint_color</item>
+    <style name="GreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+    </style>
+
+    <style name="RedTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryRed</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkRed</item>
+        <item name="colorAccent">@color/colorAccentRed</item>
+    </style>
+
+    <style name="VioleteTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryViolete</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkViolete</item>
+        <item name="colorAccent">@color/colorAccentViolete</item>
     </style>
 
 </resources>

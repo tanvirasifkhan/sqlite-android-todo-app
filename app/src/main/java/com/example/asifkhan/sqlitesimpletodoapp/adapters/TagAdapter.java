@@ -165,16 +165,12 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
         String themeName=sharedPreferences.getString("app_theme","Default");
         if(themeName.equals("Default")){
-            context.setTheme(R.style.AppTheme);
             textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
         }else if(themeName.equals("Red")){
-            context.setTheme(R.style.RedTheme);
             textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryRed));
         }else if(themeName.equals("Green")){
-            context.setTheme(R.style.GreenTheme);
             textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryGreen));
         }else if(themeName.equals("Violete")){
-            context.setTheme(R.style.VioleteTheme);
             textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryViolete));
         }
     }
@@ -184,16 +180,12 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.TagDataHolder> {
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
         String themeName=sharedPreferences.getString("app_theme","Default");
         if(themeName.equals("Default")){
-            context.setTheme(R.style.AppTheme);
             textView.setTextColor(context.getResources().getColor(R.color.colorPrimary));
         }else if(themeName.equals("Red")){
-            context.setTheme(R.style.RedTheme);
             textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryRed));
         }else if(themeName.equals("Green")){
-            context.setTheme(R.style.GreenTheme);
             textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryGreen));
         }else if(themeName.equals("Violete")){
-            context.setTheme(R.style.VioleteTheme);
             textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryViolete));
         }
     }

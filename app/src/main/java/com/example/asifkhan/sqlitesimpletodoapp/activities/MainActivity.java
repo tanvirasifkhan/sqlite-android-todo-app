@@ -293,8 +293,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 TimePickerDialog timePickerDialog=new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        calendar.set(Calendar.HOUR,i);
-                        calendar.set(Calendar.MONTH,i1);
+                        calendar.set(Calendar.HOUR_OF_DAY,i);
+                        calendar.set(Calendar.MINUTE,i1);
                         String timeFormat=DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
                         todoTime.setText(timeFormat);
                     }
@@ -368,16 +368,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
         String themeName=sharedPreferences.getString("app_theme","Default");
         if(themeName.equals("Default")){
-            setTheme(R.style.AppTheme);
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         }else if(themeName.equals("Red")){
-            setTheme(R.style.RedTheme);
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
         }else if(themeName.equals("Green")){
-            setTheme(R.style.GreenTheme);
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
         }else if(themeName.equals("Violete")){
-            setTheme(R.style.VioleteTheme);
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
         }
     }
@@ -387,16 +383,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
         String themeName=sharedPreferences.getString("app_theme","Default");
         if(themeName.equals("Default")){
-            setTheme(R.style.AppTheme);
             textView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         }else if(themeName.equals("Red")){
-            setTheme(R.style.RedTheme);
             textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
         }else if(themeName.equals("Green")){
-            setTheme(R.style.GreenTheme);
             textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
         }else if(themeName.equals("Violete")){
-            setTheme(R.style.VioleteTheme);
             textView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
         }
     }
@@ -406,16 +398,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
         String themeName=sharedPreferences.getString("app_theme","Default");
         if(themeName.equals("Default")){
-            setTheme(R.style.AppTheme);
             textView.setTextColor(getResources().getColor(R.color.colorPrimary));
         }else if(themeName.equals("Red")){
-            setTheme(R.style.RedTheme);
             textView.setTextColor(getResources().getColor(R.color.colorPrimaryRed));
         }else if(themeName.equals("Green")){
-            setTheme(R.style.GreenTheme);
             textView.setTextColor(getResources().getColor(R.color.colorPrimaryGreen));
         }else if(themeName.equals("Violete")){
-            setTheme(R.style.VioleteTheme);
             textView.setTextColor(getResources().getColor(R.color.colorPrimaryViolete));
         }
     }
@@ -430,16 +418,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
             if(themeName.equals("Default")){
-                setTheme(R.style.AppTheme);
                 window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
             }else if(themeName.equals("Red")){
-                setTheme(R.style.RedTheme);
                 window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkRed));
             }else if(themeName.equals("Green")){
-                setTheme(R.style.GreenTheme);
                 window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkGreen));
             }else if(themeName.equals("Violete")){
-                setTheme(R.style.VioleteTheme);
                 window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkViolete));
             }
         }

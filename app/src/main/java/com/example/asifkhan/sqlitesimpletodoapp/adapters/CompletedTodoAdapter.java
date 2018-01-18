@@ -1,9 +1,7 @@
 package com.example.asifkhan.sqlitesimpletodoapp.adapters;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Paint;
-import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +9,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
-import com.example.asifkhan.sqlitesimpletodoapp.helpers.TagDBHelper;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.SettingsHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.helpers.TodoDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.models.CompletedTodoModel;
-import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * Created by asifkhan on 12/27/17.
@@ -46,7 +41,7 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         CompletedTodoModel completedTodoModel=completedTodoModels.get(position);
         holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         holder.todoTitle.setText(completedTodoModel.getTodoTitle());
-        applyTextColor(holder.todoTitle);
+        SettingsHelper.applyTextColor(holder.todoTitle,context);
         holder.todoContent.setText(completedTodoModel.getTodoContent());
         holder.todoTag.setText(completedTodoModel.getTodoTag());
         holder.todoDate.setText(completedTodoModel.getTodoDate());
@@ -75,20 +70,5 @@ public class CompletedTodoAdapter extends RecyclerView.Adapter<CompletedTodoAdap
         completedTodoModels=new ArrayList<>();
         completedTodoModels.addAll(newCompletedTodoModels);
         notifyDataSetChanged();
-    }
-
-    //apply theme for text views
-    public void applyTextColor(TextView textView){
-        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
-        String themeName=sharedPreferences.getString("app_theme","Default");
-        if(themeName.equals("Default")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimary));
-        }else if(themeName.equals("Red")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryRed));
-        }else if(themeName.equals("Green")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryGreen));
-        }else if(themeName.equals("Violete")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryViolete));
-        }
     }
 }

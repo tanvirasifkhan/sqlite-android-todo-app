@@ -5,8 +5,6 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +25,7 @@ import android.widget.Toast;
 import com.example.asifkhan.sqlitesimpletodoapp.R;
 import com.example.asifkhan.sqlitesimpletodoapp.activities.CompletedTodos;
 import com.example.asifkhan.sqlitesimpletodoapp.activities.MainActivity;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.SettingsHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.helpers.TagDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.helpers.TodoDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
@@ -34,7 +33,6 @@ import com.example.asifkhan.sqlitesimpletodoapp.models.PendingTodoModel;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by asifkhan on 12/27/17.
@@ -133,7 +131,7 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.edit_todo_dialog,null);
         builder.setView(view);
-        applyThemeTextView((TextView)view.findViewById(R.id.edit_todo_dialog_title));
+        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.edit_todo_dialog_title),context);
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
@@ -204,8 +202,8 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         });
         TextView cancel=(TextView)view.findViewById(R.id.cancel);
         TextView addTodo=(TextView)view.findViewById(R.id.add_new_todo);
-        applyTextColor(cancel);
-        applyTextColor(addTodo);
+        SettingsHelper.applyTextColor(cancel,context);
+        SettingsHelper.applyTextColor(addTodo,context);
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -288,35 +286,5 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
         pendingTodoModels=new ArrayList<>();
         pendingTodoModels.addAll(newPendingTodoModels);
         notifyDataSetChanged();
-    }
-
-    //apply theme for text views
-    public void applyThemeTextView(TextView textView){
-        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
-        String themeName=sharedPreferences.getString("app_theme","Default");
-        if(themeName.equals("Default")){
-            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
-        }else if(themeName.equals("Red")){
-            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryRed));
-        }else if(themeName.equals("Green")){
-            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryGreen));
-        }else if(themeName.equals("Violete")){
-            textView.setBackgroundColor(context.getResources().getColor(R.color.colorPrimaryViolete));
-        }
-    }
-
-    //apply text color for text views
-    public void applyTextColor(TextView textView){
-        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(context);
-        String themeName=sharedPreferences.getString("app_theme","Default");
-        if(themeName.equals("Default")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimary));
-        }else if(themeName.equals("Red")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryRed));
-        }else if(themeName.equals("Green")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryGreen));
-        }else if(themeName.equals("Violete")){
-            textView.setTextColor(context.getResources().getColor(R.color.colorPrimaryViolete));
-        }
     }
 }

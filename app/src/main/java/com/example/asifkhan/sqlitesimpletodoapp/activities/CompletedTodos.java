@@ -2,10 +2,6 @@ package com.example.asifkhan.sqlitesimpletodoapp.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,14 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asifkhan.sqlitesimpletodoapp.R;
 import com.example.asifkhan.sqlitesimpletodoapp.adapters.CompletedTodoAdapter;
+import com.example.asifkhan.sqlitesimpletodoapp.helpers.SettingsHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.helpers.TodoDBHelper;
 import com.example.asifkhan.sqlitesimpletodoapp.models.CompletedTodoModel;
 
@@ -40,13 +34,12 @@ public class CompletedTodos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        applyTheme();
+        SettingsHelper.applyTheme(this);
         setContentView(R.layout.activity_completed_todos);
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        applyThemeToolbar((Toolbar)findViewById(R.id.toolbar));
+        SettingsHelper.applyThemeToolbar((Toolbar)findViewById(R.id.toolbar),this);
         setTitle(getString(R.string.complete_todo_activity_title));
-        setStatusBarColor();
         loadCompletedTodos();
     }
 
@@ -137,57 +130,5 @@ public class CompletedTodos extends AppCompatActivity {
                 Toast.makeText(CompletedTodos.this, "Todos not deleted !", Toast.LENGTH_SHORT).show();
             }
         }).create().show();
-    }
-
-    //apply theme
-    public void applyTheme(){
-        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
-        String themeName=sharedPreferences.getString("app_theme","Default");
-        if(themeName.equals("Default")){
-            setTheme(R.style.AppTheme);
-        }else if(themeName.equals("Red")){
-            setTheme(R.style.RedTheme);
-        }else if(themeName.equals("Green")){
-            setTheme(R.style.GreenTheme);
-        }else if(themeName.equals("Violete")){
-            setTheme(R.style.VioleteTheme);
-        }
-    }
-
-    //apply theme for toolbar
-    public void applyThemeToolbar(Toolbar toolbar){
-        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
-        String themeName=sharedPreferences.getString("app_theme","Default");
-        if(themeName.equals("Default")){
-            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        }else if(themeName.equals("Red")){
-            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryRed));
-        }else if(themeName.equals("Green")){
-            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryGreen));
-        }else if(themeName.equals("Violete")){
-            toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimaryViolete));
-        }
-    }
-
-    //change the status bar color according to the theme
-    public void setStatusBarColor(){
-        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
-        String themeName=sharedPreferences.getString("app_theme","Default");
-        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            Window window=this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-            if(themeName.equals("Default")){
-                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
-            }else if(themeName.equals("Red")){
-                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkRed));
-            }else if(themeName.equals("Green")){
-                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkGreen));
-            }else if(themeName.equals("Violete")){
-                window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDarkViolete));
-            }
-        }
-
     }
 }

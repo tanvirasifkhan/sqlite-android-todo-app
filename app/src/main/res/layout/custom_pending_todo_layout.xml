@@ -27,7 +27,7 @@
                 android:layout_marginRight="@dimen/pending_todo_title_right_margin"
                 android:layout_marginTop="@dimen/pending_todo_title_top_margin"
                 android:textStyle="bold"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_marginRight="@dimen/pending_todo_content_right_margin"
                 android:layout_below="@+id/pending_todo_title"
                 android:textSize="@dimen/pending_todo_content_text_size"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <LinearLayout

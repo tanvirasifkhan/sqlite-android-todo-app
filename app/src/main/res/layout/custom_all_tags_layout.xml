@@ -24,7 +24,7 @@
                 android:layout_marginRight="@dimen/tag_title_right_margin"
                 android:layout_marginTop="@dimen/tag_title_top_margin"
                 android:textStyle="bold"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <ImageView

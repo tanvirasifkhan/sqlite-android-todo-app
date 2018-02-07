@@ -176,7 +176,10 @@ public class PendingTodoAdapter extends RecyclerView.Adapter<PendingTodoAdapter.
                 DatePickerDialog datePickerDialog=new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        todoDate.setText(i+"-"+i1+"-"+i2);
+                        calendar.set(Calendar.YEAR,i);
+                        calendar.set(Calendar.MONTH,i1);
+                        calendar.set(Calendar.DAY_OF_MONTH,i2);
+                        todoDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(calendar.getTime()));
                     }
                 },year,month,day);
                 datePickerDialog.show();
